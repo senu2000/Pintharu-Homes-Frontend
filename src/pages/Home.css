@@ -1,0 +1,20 @@
+.homeback{
+    background-color: rgb(235, 235, 235);
+    background-image: url('../public/Images/Background.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center,top;
+}
+.editnavbar{
+    padding-top: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.middlecontent{
+    height: 500px;
+}
+.editadssection{
+    margin: 40px;
+    margin-left: 60px;
+    margin-right: 60px;
+}

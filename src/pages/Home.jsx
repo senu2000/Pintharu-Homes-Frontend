@@ -1,22 +1,39 @@
-import React from 'react';
-// import { Button } from "flowbite-react";
-import { DarkThemeToggle, Flowbite } from "flowbite-react";
-import MainBtn from "../components/MainBtn.jsx";
+import "./Home.css";
+import MyFooter from "../components/Footer";
+import MyNavBar from "../components/NavBar.jsx";
+import AdsSection from "../components/Carousel.jsx";
+import {motion} from "framer-motion";
 
-
-function Home(props) {
+export default function Home() {
     return (
         <>
-            <div className='text-2xl font-bold text-red-500 text-center underline'>
-                home page
+            <div className="homeback">
+                <div className="editnavbar">
+                    <MyNavBar/>
+                </div>
+                <motion.div
+                    className="w-32 h-32 bg-blue-700"
+                    initial={{
+                        x: 300,
+                    }}
+                    animate={{
+                        x: 0,
+                    }}
+                    transition={{
+                        delay:0.5,
+                    }}
+                >
+                    Hello
+                </motion.div>
+                <div className="middlecontent">
+                    <div className="editadssection">
+                        <AdsSection/>
+                    </div>
+                </div>
             </div>
-            <MainBtn>main button</MainBtn>
-            {/*<Button>Click me</Button>*/}
-            <Flowbite>
-                <DarkThemeToggle />
-            </Flowbite>
+
+            <div><MyFooter/></div>
+
         </>
     );
 }
-
-export default Home;
