@@ -1,6 +1,6 @@
 import { Button, Navbar } from "flowbite-react";
 import React from "react";
-import "./css files/NavBar.css";
+import "../css/NavBar.css";
 import Img1 from "../../public/Images/Logo.png";
 
 export default function MyNavBar() {

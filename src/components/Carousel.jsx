@@ -1,5 +1,5 @@
 import { Carousel } from "flowbite-react";
-import "./css files/Carousel.css";
+import "../css/Carousel.css";
 import React from "react";
 
 import crsl1 from "../../public/Images/Carousel1.jpg";
