@@ -1,0 +1,20 @@
+.homecaption1{
+    font-size: 130px;
+    font-weight: bold;
+    color: white !important;
+}
+.typing-animation {
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    animation: revealText 5s forwards; /* Animation duration and timing */
+}
+
+@keyframes revealText {
+    from {
+        width: 0; /* Start with zero width */
+    }
+    to {
+        width: 100%; /* End with full width */
+    }
+}
+

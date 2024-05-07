@@ -1,0 +1,32 @@
+.custom_sty{
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+.editlogo{
+    height: 50px;
+}
+.elementedit{
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 45px;
+    padding-right: 45px;
+    border-radius: 8px;
+    border-color: white ;
+    border-width: 1px;
+}
+.navitem{
+    /*font-size: 15px;*/
+}
+.navitem.active {
+    color: white;
+}
+.navitem:hover{
+    color: white !important;
+}
+
+
+.profilebtn{
+    color: #333333 !important;
+    background-image: linear-gradient(to right, #fc6c41, #faad73);
+}
