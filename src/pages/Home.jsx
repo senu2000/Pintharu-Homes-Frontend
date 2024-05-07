@@ -1,4 +1,4 @@
-import "./Home.css";
+import "../css/Home.css";
 import MyFooter from "../components/Footer";
 import MyNavBar from "../components/NavBar.jsx";
 import AdsSection from "../components/Carousel.jsx";
