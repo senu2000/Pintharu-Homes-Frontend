@@ -20,10 +20,12 @@ export default function MyNavBar() {
                             <Navbar.Link href="#" className="navitem">Services</Navbar.Link>
                             <Navbar.Link href="#" className="navitem">Pricing</Navbar.Link>
                             <Navbar.Link href="#" className="navitem">Contact</Navbar.Link>
+
                         </Navbar.Collapse>
                     </div>
+                    <Button className="profilebtn">Profile</Button>
                     <div>
-                        <Button className="profilebtn">Profile</Button>
+
                         <Navbar.Toggle />
                     </div>
                 </Navbar>
