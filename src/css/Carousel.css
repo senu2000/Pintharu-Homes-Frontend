@@ -1,20 +1,90 @@
-.homecaption1{
-    font-size: 130px;
+
+.textanim1 {
+    position: absolute;
+    top: 280px;
+    bottom: 510px;
+    left: 5px;
+    right: 543px;
+    background-color: white;
+    z-index: auto;
+}
+.hometitle {
+    color: white;
     font-weight: bold;
-    color: white !important;
-}
-.typing-animation {
-    overflow: hidden; /* Hide overflowing text */
-    white-space: nowrap; /* Prevent text from wrapping */
-    animation: revealText 5s forwards; /* Animation duration and timing */
 }
 
-@keyframes revealText {
-    from {
-        width: 0; /* Start with zero width */
-    }
-    to {
-        width: 100%; /* End with full width */
-    }
+.hometitle1 {
+    font-size: 55.5px;
+    margin-top: -20px;
 }
 
+.hometitle2 {
+    font-size: 152px;
+    margin-left: -7.5px;
+    margin-top: -50px;
+    margin-bottom: -30px;
+}
+
+.hometitle3 {
+    font-size: 35px;
+    margin-left: 3px;
+    margin-bottom: 40px;
+}
+.homecaption{
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    padding-top: 50px;
+    margin-right: 10px;
+}
+
+.hometitlespace{
+    background-color: rgb(190, 190, 190);
+    height: 20px;
+    width: 280px;
+}
+
+@media (min-width: 300px) {
+    .homecaption {
+        scale: 40%;
+    }
+}
+@media (min-width: 520px) {
+    .homecaption {
+        scale: 60%;
+    }
+}
+@media (min-width: 710px) {
+    .homecaption {
+        scale: 80%;
+    }
+}
+@media (min-width: 850px) {
+    .homecaption {
+        scale:95%;
+    }
+}
+@media (min-width: 920px) {
+    .homecaption {
+        scale:100%;
+        margin-left: 100px;
+    }
+}
+@media (min-width: 1000px) {
+    .homecaption {
+        scale:105%;
+        margin-left: 100px;
+    }
+}
+@media (min-width: 1200px) {
+    .homecaption {
+        scale:110%;
+        margin-left: 120px;
+    }
+}
+@media (min-width: 1300px) {
+    .homecaption {
+        scale:120%;
+        margin-left: 190px;
+    }
+}

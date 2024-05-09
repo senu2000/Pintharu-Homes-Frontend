@@ -15,6 +15,17 @@
     border-color: white ;
     border-width: 1px;
 }
+@media (max-width: 768px) {
+    /*.elementedit {*/
+    /*    background-color: rgba(255, 255, 255, 0);*/
+    /*    backdrop-filter: blur(0px);*/
+    /*    border-color: rgba(250, 173, 115, 0);*/
+    /*}*/
+
+    .navitem {
+        font-size: 13px; /* Adjust font size for smaller screens */
+    }
+}
 .navitem{
     /*font-size: 15px;*/
 }
