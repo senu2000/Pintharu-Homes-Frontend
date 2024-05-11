@@ -1,7 +1,7 @@
-import {Carousel} from "flowbite-react";
+import { Carousel } from "flowbite-react";
 import "../css/Carousel.css";
-import React, {useEffect, useRef} from "react";
-import {motion, useInView, useAnimation, color} from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 import crsl1 from "../../public/Images/Carousel1.jpg";
 import crsl2 from "../../public/Images/Carousel2.jpg";
@@ -33,57 +33,69 @@ export default function AdsSection() {
     }, [isInView2, slideControls]);
 
     return (
-
-        <div className="grid h-56 grid-cols-2 gap-4 sm:h-64 xl:h-80 2xl:h-96">
-
-            <div className="homecaption">
-                <motion.div className="hometitle1"
-                            variants={{
-                                hidden: {opacity: 0, y: 20},
-                                visible: {opacity: 1, y: 0},
-                            }}
-                            initial="hidden"
-                            animate={mainControls}
-                            transition={{duration: 0.5, delay: 0.5}}
-                            ref={ref1}
-                >BRINGING
-                </motion.div>
-                <div className="hometitlespace"></div>
-                <div className="hometitle2">LIFE</div>
-                <div className="hometitlespace"></div>
-                <motion.div className="hometitle3"
-                            variants={{
-                                hidden: {opacity: 0, y: -20},
-                                visible: {opacity: 1, y: 0},
-                            }}
-                            initial="hidden"
-                            animate={mainControls}
-                            transition={{duration: 0.5, delay: 0.5}}
-                            ref={ref1}
-                >TO YOUR WALLS
-                </motion.div>
-
+        <div className="container mx-auto flex flex-col md:flex-row">
+            <div className="md:w-1/2">
+                <div className="homecaption">
+                    <motion.div
+                        className="hometitle1"
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                        initial="hidden"
+                        animate={mainControls}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                        ref={ref1}
+                    >
+                        BRINGING
+                    </motion.div>
+                    <div className="hometitlespace1"></div>
+                    <div className="hometitle2">LIFE</div>
+                    <div className="hometitlespace2"></div>
+                    <motion.div
+                        className="hometitle3"
+                        variants={{
+                            hidden: { opacity: 0, y: -20 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                        initial="hidden"
+                        animate={mainControls}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                        ref={ref1}
+                    >
+                        TO YOUR WALLS
+                    </motion.div>
+                </div>
+                <motion.div
+                    className="textanim1"
+                    variants={{
+                        hidden: { left: 0 },
+                        visible: { left: "100%" },
+                    }}
+                    initial="hidden"
+                    animate={slideControls}
+                    transition={{ duration: 0.8, ease: "easeIn" }}
+                    ref={ref2}
+                />
             </div>
-            <motion.div
-                className="textanim1"
-                variants={{
-                    hidden: { left: 0 },
-                    visible: { left: "100%" },
-                }}
-                initial="hidden"
-                animate={slideControls}
-                transition={{ duration: 0.8, ease: "easeIn" }}
-                ref={ref2}
-            />
-<div>
-            <Carousel>
-                <img src={crsl1} className="/" alt="Logo"/>
-                <img src={crsl2} className="/" alt="Logo"/>
-                <img src={crsl3} className="/" alt="Logo"/>
-                <img src={crsl4} className="/" alt="Logo"/>
-            </Carousel>
-</div>
-        </div>
 
+            <div className="md:w-1/2">
+                <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+                    <Carousel
+                        onSlideChange={(index) => console.log("onSlideChange()", index)}
+                    >
+                        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                            Slide 1
+                        </div>
+                        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                            Slide 2
+                        </div>
+                        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                            Slide 3
+                        </div>
+                    </Carousel>
+                </div>
+            </div>
+        </div>
     );
 }

@@ -34,31 +34,34 @@
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    padding-top: 50px;
-    margin-right: 10px;
 }
 
-.hometitlespace{
-    background-color: rgb(190, 190, 190);
+.hometitlespace1{
+    background-image: linear-gradient(to right, rgba(252, 108, 65, 0.8), rgba(36, 69, 76, 0.87));
+    backdrop-filter: blur(5px);
+    height: 20px;
+    width: 280px;
+}
+.hometitlespace2{
+    background-image: linear-gradient(to left, rgba(252, 108, 65, 0.8), rgba(36, 69, 76, 0.87));
+    backdrop-filter: blur(5px);
     height: 20px;
     width: 280px;
 }
 
-@media (min-width: 300px) {
+
+
+
+@media (max-width: 768px) {
     .homecaption {
-        scale: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0; /* Remove any previous margin */
     }
 }
-@media (min-width: 520px) {
-    .homecaption {
-        scale: 60%;
-    }
-}
-@media (min-width: 710px) {
-    .homecaption {
-        scale: 80%;
-    }
-}
+
 @media (min-width: 850px) {
     .homecaption {
         scale:95%;
@@ -67,13 +70,13 @@
 @media (min-width: 920px) {
     .homecaption {
         scale:100%;
-        margin-left: 100px;
+        margin-left: 60px;
     }
 }
 @media (min-width: 1000px) {
     .homecaption {
         scale:105%;
-        margin-left: 100px;
+        margin-left: 60px;
     }
 }
 @media (min-width: 1200px) {
@@ -86,5 +89,6 @@
     .homecaption {
         scale:120%;
         margin-left: 190px;
+        margin-top: 20px;
     }
 }

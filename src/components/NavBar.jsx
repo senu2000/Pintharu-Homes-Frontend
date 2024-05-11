@@ -12,22 +12,24 @@ export default function MyNavBar() {
                         <img src={Img1} className="editlogo" alt="Logo" />
                     </div>
                     <div className="elementedit">
-                        <Navbar.Collapse>
+                        <Navbar.Collapse className="toggleelmntedt">
                             <Navbar.Link href="#"  className="navitem active" >
                                 Home
                             </Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">About</Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">Services</Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">Pricing</Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">Contact</Navbar.Link>
+                            <Navbar.Link href="#" className="navitem">Products</Navbar.Link>
+                            <Navbar.Link href="#" className="navitem">Projects</Navbar.Link>
+                            <Navbar.Link href="#" className="navitem">About Us</Navbar.Link>
+                            <Navbar.Link href="#" className="navitem">Contact Us</Navbar.Link>
 
                         </Navbar.Collapse>
                     </div>
-                    <Button className="profilebtn">Profile</Button>
-                    <div>
 
-                        <Navbar.Toggle />
+                    <div>
+                        <Button className="profilebtn">Profile</Button>
+                        <Navbar.Toggle className="togglebtnedt"/>
+
                     </div>
+
                 </Navbar>
             </div>
         </>
