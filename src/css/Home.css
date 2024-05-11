@@ -1,5 +1,5 @@
 .homeback{
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(232, 232, 232);
     background-image: url('../public/Images/Background.jpg');
     background-size:cover;
     background-repeat: no-repeat;
@@ -10,11 +10,58 @@
     margin-right: 40px;
     margin-left: 40px;
 }
-.middlecontent{
-    height: 500px;
-}
 .editadssection{
     margin: 40px;
     margin-left: 60px;
     margin-right: 60px;
+}
+.paintproductcards{
+    padding: 30px;
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.searchabovetext{
+    color: #ffffff;
+    text-align: center;
+}
+.homeproducttitle{
+    text-align: center;
+    font-weight: bold;
+    color: #333333;
+    font-size: 45px;
+    padding-top: 20px;
+    letter-spacing: -1px;
+}
+.homeproductsubtitle{
+    text-align: center;
+    color: #676767;
+    font-size: 20px;
+    margin-top: -8px;
+}
+.exploremorebtn {
+    display: block; /* Set display to block */
+    width: fit-content; /* Adjust width to fit content */
+    margin: 0 auto; /* Center horizontally */
+    padding: 13px 28px; /* Adjust padding */
+    border-radius: 10px;
+    background-color: rgba(51, 51, 51, 0) !important;
+    color: #2f4649 !important;
+    border-width: 4px !important;
+    border-image: linear-gradient(to right, #214c4f, #40767d) 1; /* Specify the gradient */
+    font-weight: bold;
+}
+.exploremorebtn:hover{
+    background-image: linear-gradient(to right, #214c4f, #40767d);
+    color: white !important;
+}
+.exploremorebtn:active{
+    background-image: linear-gradient(to right, #a1a1a1, #d9d9d9);
+    color: #333333 !important;
+    border-width: 4px !important;
+    border-image: linear-gradient(to right, #a1a1a1, #d9d9d9) 1;
+}
+.homeproductssection{
+    background-color: #ececec;
+    padding-bottom: 40px;
 }

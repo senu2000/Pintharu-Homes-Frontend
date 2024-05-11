@@ -1,20 +1,94 @@
-.homecaption1{
-    font-size: 130px;
+
+.textanim1 {
+    position: absolute;
+    top: 280px;
+    bottom: 510px;
+    left: 5px;
+    right: 543px;
+    background-color: white;
+    z-index: auto;
+}
+.hometitle {
+    color: white;
     font-weight: bold;
-    color: white !important;
-}
-.typing-animation {
-    overflow: hidden; /* Hide overflowing text */
-    white-space: nowrap; /* Prevent text from wrapping */
-    animation: revealText 5s forwards; /* Animation duration and timing */
 }
 
-@keyframes revealText {
-    from {
-        width: 0; /* Start with zero width */
-    }
-    to {
-        width: 100%; /* End with full width */
+.hometitle1 {
+    font-size: 55.5px;
+    margin-top: -20px;
+}
+
+.hometitle2 {
+    font-size: 152px;
+    margin-left: -7.5px;
+    margin-top: -50px;
+    margin-bottom: -30px;
+}
+
+.hometitle3 {
+    font-size: 35px;
+    margin-left: 3px;
+    margin-bottom: 40px;
+}
+.homecaption{
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hometitlespace1{
+    background-image: linear-gradient(to right, rgba(252, 108, 65, 0.8), rgba(36, 69, 76, 0.87));
+    backdrop-filter: blur(5px);
+    height: 20px;
+    width: 280px;
+}
+.hometitlespace2{
+    background-image: linear-gradient(to left, rgba(252, 108, 65, 0.8), rgba(36, 69, 76, 0.87));
+    backdrop-filter: blur(5px);
+    height: 20px;
+    width: 280px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .homecaption {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0; /* Remove any previous margin */
     }
 }
 
+@media (min-width: 850px) {
+    .homecaption {
+        scale:95%;
+    }
+}
+@media (min-width: 920px) {
+    .homecaption {
+        scale:100%;
+        margin-left: 60px;
+    }
+}
+@media (min-width: 1000px) {
+    .homecaption {
+        scale:105%;
+        margin-left: 60px;
+    }
+}
+@media (min-width: 1200px) {
+    .homecaption {
+        scale:110%;
+        margin-left: 120px;
+    }
+}
+@media (min-width: 1300px) {
+    .homecaption {
+        scale:120%;
+        margin-left: 190px;
+        margin-top: 20px;
+    }
+}

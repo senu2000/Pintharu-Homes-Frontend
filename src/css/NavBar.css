@@ -4,6 +4,10 @@
 .editlogo{
     height: 50px;
 }
+.editlogo1{
+    height: 60px;
+    margin-left: 20px;
+}
 .elementedit{
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
@@ -15,6 +19,27 @@
     border-color: white ;
     border-width: 1px;
 }
+@media (max-width: 768px) {
+    .elementedit {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(0px);
+        border-color: rgba(250, 173, 115, 0);
+    }
+    .toggleelmntedt {
+        background-color: #ffffff;
+    }
+        .toggleelmntedt:hover{
+        background-color: #ffffff;
+    }
+    .navitem.active {
+        color: #ffffff !important;
+        background-color: #333333;
+    }
+    .navitem:hover{
+        color: white !important;
+        background-color: #333333 !important;
+    }
+}
 .navitem{
     /*font-size: 15px;*/
 }
@@ -22,7 +47,7 @@
     color: white;
 }
 .navitem:hover{
-    color: white !important;
+    color: #ffffff !important;
 }
 
 
@@ -30,3 +55,26 @@
     color: #333333 !important;
     background-image: linear-gradient(to right, #fc6c41, #faad73);
 }
+.profilebtn:active {
+    background-image: linear-gradient(to right, rgb(161, 161, 161), #d9d9d9) !important;
+    border-color: transparent !important;
+}
+
+.profilebtn:hover{
+    color: #333333 !important;
+    background-image: linear-gradient(to right, #faad73, #fc6c41);
+}
+.togglebtnedt{
+    color: white !important;
+
+}
+.togglebtnedt:hover{
+    color: #333333 !important;
+
+}
+.togglebtnedt:active {
+    border-color: rgba(255, 255, 255, 0) !important;
+}
+/*.toggleelmntedt:hover{*/
+/*    background-color: blue;*/
+/*}*/
