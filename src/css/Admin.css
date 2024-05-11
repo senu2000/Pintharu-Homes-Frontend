@@ -1,0 +1,10 @@
+.product-table{
+    background: rgba(253, 252, 252, 0.42);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+}
+
+.delete-mdl-btn:hover{
+    background-color: #9d0c0c !important;
+}
