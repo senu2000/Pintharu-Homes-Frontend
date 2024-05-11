@@ -1,0 +1,99 @@
+.paintcardimg{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    margin-left: 10px;
+}
+.productcardtext{
+    margin-left: -30px;
+    margin-right: -30px;
+    text-align: center;
+}
+.productcard-button{
+    background-image: linear-gradient(to right, #40767d, #214c4f);
+}
+.productcard-button:hover{
+    background-image: linear-gradient(to right, #214c4f, #40767d);
+}
+.productcard-button:active{
+    border-color: #333333;
+    color: #333333;
+    background-image: linear-gradient(to right, #a1a1a1, #d9d9d9);
+}
+
+
+
+
+@media  (max-width: 709.98px) {
+    .paintcard4{
+        display: none;
+    }
+    .paintcard3{
+        display: none;
+    }
+    .paintproductcards{
+        scale: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (min-width: 710px) and (max-width: 834.98px) {
+    .paintcard4{
+        display: none;
+    }
+    .paintcard3{
+        display: none;
+    }
+    .paintproductcards{
+        scale: 90%;
+    }
+}
+@media (min-width: 835px) and (max-width: 999.98px) {
+    .paintcard4{
+        display: none;
+    }
+    .paintcard3{
+        display: none;
+    }
+    .paintproductcards{
+        scale: 80%;
+    }
+}
+@media (min-width: 945px) and (max-width: 999.98px) {
+    .paintcard4{
+        display: none;
+    }
+    .paintproductcards{
+        scale: 80%;
+    }
+}
+
+@media  (min-width: 1000px) and (max-width: 1194.98px) {
+    .paintcard4{
+        display: none;
+    }
+    .paintproductcards{
+        scale: 85%;
+    }
+}
+@media  (min-width: 1195px) and (max-width: 1244.98px) {
+    /*.paintcard4{*/
+    /*    display: none;*/
+    /*}*/
+    .paintproductcards{
+        scale: 85%;
+    }
+}
+@media (min-width: 1245px) and (max-width: 1454.98px) {
+    .paintcard4{
+        display: none;
+    }
+    .paintproductcards{
+        scale: 85%;
+    }
+}
+@media (min-width: 1455px) and (max-width: 1540px) {
+    .paintproductcards{
+        scale: 95%;
+    }
+}
