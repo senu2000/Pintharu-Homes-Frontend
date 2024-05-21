@@ -17,20 +17,7 @@ export default function Home() {
                     <MyNavBar/>
                 </div>
 
-                {/*<motion.div*/}
-                {/*    className="w-32 h-32 bg-blue-700"*/}
-                {/*    initial={{*/}
-                {/*        x: 300,*/}
-                {/*    }}*/}
-                {/*    animate={{*/}
-                {/*        x: 0,*/}
-                {/*    }}*/}
-                {/*    transition={{*/}
-                {/*        delay: 0.5,*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    Hello*/}
-                {/*</motion.div>*/}
+
 
                 <div className="middlecontent">
                     <div className="editadssection">
