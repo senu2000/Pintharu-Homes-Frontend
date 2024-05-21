@@ -74,7 +74,7 @@ const ImageUploader = () => {
         formData.append('name', name);
 
         try {
-            const response = await axios.post('http://localhost:8080/api/paint/fileSystem', formData, {
+            const response = await axios.post('http://localhost:8080/api/paint/createpaint', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -102,6 +102,7 @@ const ImageUploader = () => {
                 <button type="submit">Upload</button>
                 {error && <div style={{ color: 'red' }}>{error}</div>}
             </form>
+
         </div>
     );
 };

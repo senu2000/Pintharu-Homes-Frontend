@@ -22,7 +22,7 @@ function EditProductBtnModel(props) {
                 <Modal.Header />
                 <Modal.Body>
                     <div className="space-y-6">
-                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">Edit Your Paint</h3>
+                        <h3 className="text-xl text-blue-300 dark:text-white text-center border-l-2 font-extrabold">Edit Your Paint</h3>
                         <div>
                             <div className="mb-2 block">
                                 <Label htmlFor="name" value="Paint name"/>
@@ -83,8 +83,8 @@ function EditProductBtnModel(props) {
                             <TextInput id="image" type="file" name="image" required/>
                         </div>
                         <div className="w-full grid place-content-center pl-8 pr-8">
-                            <Button>
-                                <FontAwesomeIcon icon={faCheck} />
+                            <Button className="font-extrabold">
+                                <FontAwesomeIcon icon={faCheck}/>
                             </Button>
                         </div>
                     </div>

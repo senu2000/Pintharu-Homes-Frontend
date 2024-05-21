@@ -3,10 +3,10 @@ import "../css/Carousel.css";
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-import crsl1 from "../../public/Images/Carousel1.jpg";
-import crsl2 from "../../public/Images/Carousel2.jpg";
-import crsl3 from "../../public/Images/Carousel3.jpg";
-import crsl4 from "../../public/Images/Carousel4.jpg";
+// import crsl1 from "../../public/Images/Carousel1.jpg";
+// import crsl2 from "../../public/Images/Carousel2.jpg";
+// import crsl3 from "../../public/Images/Carousel3.jpg";
+// import crsl4 from "../../public/Images/Carousel4.jpg";
 
 export default function AdsSection() {
     const ref1 = useRef(null);

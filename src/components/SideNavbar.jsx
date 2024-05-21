@@ -1,27 +1,26 @@
 import React from 'react';
 import { Sidebar } from "flowbite-react";
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
 import "../css/SideNavbar.css";
 import {motion} from "framer-motion";
 import { Link } from 'react-router-dom';
 import AddProductBtnModel from "./AddProductBtnModel.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPaintRoller, faArrowDownShortWide, faPercentage, faComments, faUser, faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+import {faPaintRoller, faArrowDownShortWide, faPercentage, faComments, faUser, faRightFromBracket, faSheetPlastic} from '@fortawesome/free-solid-svg-icons'
 
 function SideNavbar(props) {
     return (
         <motion.div className='full-side bg-blue-50 rounded-tr-[150px] rounded-bl-[150px]'
                     initial={{
-                        x: 100,
-                        y:-20,
+                        x: 0,
+                        y:-140,
                     }}
                     animate={{
                         x: 0,
-                        y:20,
+                        y:0,
 
                     }}
                     transition={{
-                        delay: 0.5,
+                        delay: 0.1,
                     }}>
             <Sidebar aria-label="Default sidebar example" className='full-snav'>
                 <Sidebar.Items className='nav-all-item'>
@@ -75,6 +74,19 @@ function SideNavbar(props) {
                                     <Link to="/admin-users"
                                           className="font-medium text-cyan-600 hover:text-blue-900 dark:text-cyan-500">
                                         <FontAwesomeIcon icon={faUser}/>&nbsp; Users
+                                    </Link>
+                                </div>
+                                <div className='div2 flex justify-end'>
+                                    <AddProductBtnModel/>
+                                </div>
+                            </div>
+                        </Sidebar.Item>
+                        <Sidebar.Item className='nav-item'>
+                            <div className='grid grid-cols-2 place-content-between'>
+                                <div className='div1'>
+                                    <Link to="/admin-users"
+                                          className="font-medium text-cyan-600 hover:text-blue-900 dark:text-cyan-500">
+                                        <FontAwesomeIcon icon={faSheetPlastic}/>&nbsp; Projects
                                     </Link>
                                 </div>
                                 <div className='div2 flex justify-end'>

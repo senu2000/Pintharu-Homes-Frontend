@@ -11,7 +11,7 @@ function DeleteBtnModel(props) {
     return (
         <div>
             <Button onClick={() => setOpenModal(true)} className='bg-red-500 delete-mdl-btn'>
-                <FontAwesomeIcon icon={faTrash} fade/>
+                <FontAwesomeIcon icon={faTrash} />
             </Button>
             <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
                 <Modal.Header />

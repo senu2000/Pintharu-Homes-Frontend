@@ -5,8 +5,8 @@ import AdsSection from "../components/Carousel.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
 import React from "react";
-import {Button} from "flowbite-react";
-import OutlinedButtons from "../components/MainBtn.jsx";
+// import {Button} from "flowbite-react";
+// import OutlinedButtons from "../components/MainBtn.jsx";
 
 
 export default function Home() {
@@ -17,20 +17,20 @@ export default function Home() {
                     <MyNavBar/>
                 </div>
 
-                <motion.div
-                    className="w-32 h-32 bg-blue-700"
-                    initial={{
-                        x: 300,
-                    }}
-                    animate={{
-                        x: 0,
-                    }}
-                    transition={{
-                        delay: 0.5,
-                    }}
-                >
-                    Hello
-                </motion.div>
+                {/*<motion.div*/}
+                {/*    className="w-32 h-32 bg-blue-700"*/}
+                {/*    initial={{*/}
+                {/*        x: 300,*/}
+                {/*    }}*/}
+                {/*    animate={{*/}
+                {/*        x: 0,*/}
+                {/*    }}*/}
+                {/*    transition={{*/}
+                {/*        delay: 0.5,*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    Hello*/}
+                {/*</motion.div>*/}
 
                 <div className="middlecontent">
                     <div className="editadssection">
