@@ -1,0 +1,86 @@
+.projectcountedit {
+    background-color: rgba(0, 213, 213, 0) !important;
+    scale: 70%;
+
+}
+
+.projectcountedit1 {
+    background-color: rgb(255, 255, 255) !important;
+
+}
+
+.projectscount {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.projectcounttexts {
+    text-align: center;
+    font-size: 30px !important;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.countsectionicon {
+    display: flex !important;
+    justify-content: center !important;
+    scale: 30%;
+    margin: -150px;
+}
+
+.projectcountedit2 {
+    padding: 20px;
+    background-color: white !important;
+
+}
+
+@media (max-width: 639.98px) {
+    .projectcountedit {
+        margin-bottom: -570px;
+        margin-top: -1230px;
+        scale: 30%;
+    }
+
+    .homeproductssection {
+        padding-bottom: 600px;
+    }
+    .projectssectiontop{
+        height: 50px;
+    }
+}
+
+@media (min-width: 640px) {
+    .projectcountedit {
+        margin-bottom: -400px;
+        margin-top: -510px;
+        scale: 50%;
+    }
+
+    .homeproductssection {
+        padding-bottom: 320px;
+    }
+    .projectssectiontop{
+        height: 250px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .projectcountedit {
+        margin-bottom: -170px;
+        margin-top: -250px;
+        scale: 70%;
+    }
+
+    .countsectionicon {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .homeproductssection {
+        padding-bottom: 200px;
+    }
+    .projectssectiontop{
+        height: 150px;
+    }
+}
