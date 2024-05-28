@@ -1,8 +1,8 @@
 import React from 'react';
 import SideNavbar from "../components/SideNavbar.jsx";
-import SideNavbarRateContent from "../components/SideNavbarRateContent.jsx";
+import SideNavbarProjectContent from "../components/SideNavbarProjectContent.jsx";
 
-function AdminRates(props) {
+function AdminProjects(props) {
     return (
         <div>
             <div className='flex'>
@@ -10,11 +10,11 @@ function AdminRates(props) {
                     <SideNavbar/>
                 </div>
                 <div className='basis-[95%]'>
-                    <SideNavbarRateContent/>
+                    <SideNavbarProjectContent/>
                 </div>
             </div>
         </div>
     );
 }
 
-export default AdminRates;
+export default AdminProjects;

@@ -5,9 +5,36 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "../css/Admin.css";
+import axios from "axios";
+import { toast } from 'sonner'
 
 function DeleteBtnModel(props) {
     const [openModal, setOpenModal] = useState(false);
+    const deletePaint = async (e) => {
+        e.preventDefault();
+
+        try {
+            await axios.delete(`${props.endpoint}/${props.item.id}`);
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setOpenModal(false);
+            displayDeleteToast();
+        }
+    };
+
+    const displayDeleteToast = () => {
+        toast.success(`${props.alert} deleted successfully !`, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+
     return (
         <div>
             <Button onClick={() => setOpenModal(true)} className='bg-red-500 delete-mdl-btn'>
@@ -22,7 +49,7 @@ function DeleteBtnModel(props) {
                             Are you sure you want to delete this product?
                         </h3>
                         <div className="flex justify-center gap-4">
-                            <Button color="failure" onClick={() => setOpenModal(false)}>
+                            <Button color="failure" onClick={deletePaint}>
                                 {"Yes, I'm sure"}
                             </Button>
                             <Button color="gray" onClick={() => setOpenModal(false)}>

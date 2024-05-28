@@ -15,6 +15,9 @@ import AdminChat from "./pages/AdminChat.jsx";
 import AdminOrders from "./pages/AdminOrders.jsx";
 import AdminRates from "./pages/AdminRates.jsx";
 import AdminUsers from "./pages/AdminUsers.jsx";
+import {Toaster} from "sonner";
+import React from "react";
+import AdminProjects from "./pages/AdminProjects.jsx";
 function App() {
 
   return (
@@ -33,12 +36,14 @@ function App() {
                 <Route path={"/admin-orders"} element={<AdminOrders/>}/>
                 <Route path={"/admin-rates"} element={<AdminRates/>}/>
                 <Route path={"/admin-users"} element={<AdminUsers/>}/>
+                <Route path={"/admin-projects"} element={<AdminProjects/>}/>
                 <Route path={"/login"} element={<Login/>}/>
                 <Route path={"/register"} element={<Register/>}/>
                 <Route path={"/cart"} element={<Cart/>}/>
                 <Route path={"/payment"} element={<Payment/>}/>
             </Routes>
         </BrowserRouter>
+        <Toaster richColors  />
     </>
   )
 }

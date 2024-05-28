@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../css/projectcountedit.css';
 import Icon1 from "../../public/Images/Icons/projects.png";
 import Icon2 from "../../public/Images/Icons/painters.png";
@@ -7,6 +7,24 @@ import Icon4 from "../../public/Images/Icons/user.png";
 
 
 const ProjectSection = ({imageUrl, title, description}) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const targetCount = 25;
+        let currentCount = 0;
+
+        const interval = setInterval(() => {
+            currentCount += 1;
+            if (currentCount > targetCount) {
+                clearInterval(interval);
+            } else {
+                setCount(currentCount);
+            }
+        }, 50);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10 projectcountedit2">
             <div className="relative p-8 projectcountedit1">
@@ -18,7 +36,7 @@ const ProjectSection = ({imageUrl, title, description}) => {
                     />
                 </div>
 
-                <div className="projectscount">25+</div>
+                <div className="projectscount">{count}+</div>
                 <div className="projectcounttexts">
                     <h5 className="text-3xl font-bold text-black transition group-hover:text-secondary projectcounttexts">{title}</h5>
                 </div>

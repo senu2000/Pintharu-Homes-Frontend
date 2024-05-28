@@ -1,92 +1,172 @@
 import React from 'react';
-import { Button, Label, Modal, TextInput } from "flowbite-react";
-import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFolderPlus, faCheck } from '@fortawesome/free-solid-svg-icons'
+import {Button, Label, Modal, TextInput} from "flowbite-react";
+import {useState} from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faFolderPlus, faCheck} from '@fortawesome/free-solid-svg-icons'
+import axios from "axios";
 
 function AddProductBtnModel(props) {
     const [openModal, setOpenModal] = useState(false);
-    // const [email, setEmail] = useState('');
+
+    const [name, setName] = useState('');
+    const [image, setImage] = useState('');
+    const [brand, setBrand] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [category, setCategory] = useState('');
+    const [price, setPrice] = useState('');
+    const [volume, setVolume] = useState('');
 
     function onCloseModal() {
         setOpenModal(false);
-        // setEmail('');
+        setName('');
+        setBrand('');
+        setQuantity('');
+        setCategory('');
+        setPrice('');
+        setVolume('');
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('image', image);
+        formData.append('brand', brand);
+        formData.append('quantity', quantity);
+        formData.append('category', category);
+        formData.append('price', price);
+        formData.append('volume', volume);
+
+        // console.log(formData);
+
+        try {
+            const response = await axios.post('http://localhost:8080/api/paint/createpaint', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log(response.data);
+            onCloseModal();
+            props.displaySuccessToast();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <div>
             <Button onClick={() => setOpenModal(true)} className='w-7 h-7 text-center flex justify-center items-center'>
-                <FontAwesomeIcon icon={faFolderPlus} />
+                <FontAwesomeIcon icon={faFolderPlus}/>
             </Button>
             <Modal show={openModal} size="md" onClose={onCloseModal} popup>
-                <Modal.Header />
+                <Modal.Header/>
                 <Modal.Body>
-                    <div className="space-y-6">
-                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">Add New Paint</h3>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="name" value="Paint name"/>
+                    <form onSubmit={handleSubmit}>
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-medium text-gray-900 dark:text-white flex items-center justify-center">
+                                Add New Paint Item</h3>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="name" value="Paint name"/>
+                                </div>
+                                <TextInput
+                                    id="name"
+                                    placeholder="Briliant White"
+                                    name="name"
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                />
                             </div>
-                            <TextInput
-                                id="name"
-                                placeholder="Briliant White"
-                                name="name"
-                                type="text"
-                                // value={email}
-                                // onChange={(event) => setEmail(event.target.value)}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="brand" value="Brand"/>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="brand" value="Brand"/>
+                                </div>
+                                <select id="brand"
+                                        className="w-full rounded"
+                                        name="brand"
+                                        value={brand}
+                                        onChange={(e) => setBrand(e.target.value)}
+                                        required>
+                                    <option value="Nipolac">Nipolac</option>
+                                    <option value="Multilac">Multilac</option>
+                                    <option value="Robialc">Robialc</option>
+                                </select>
                             </div>
-                            <select id="brand" className="w-full rounded" name="brand"
-                                    required>
-                                <option value="Nipolac">Nipolac</option>
-                                <option value="Multilac">Multilac</option>
-                                <option value="Robialc">Robialc</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="quantity" value="Quantity"/>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="quantity" value="Quantity"/>
+                                </div>
+                                <TextInput
+                                    id="quantity"
+                                    type="number"
+                                    name="quantity"
+                                    placeholder="10"
+                                    value={quantity}
+                                    onChange={(e) => setQuantity(e.target.value)}
+                                    required/>
                             </div>
-                            <TextInput id="quantity" type="number" name="quantity" placeholder="10" required/>
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="category" value="Category"/>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="category" value="Category"/>
+                                </div>
+                                <select id="category"
+                                        className="w-full rounded"
+                                        name="category"
+                                        value={category}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        required>
+                                    <option value="Interior">Interior</option>
+                                    <option value="Exterior">Exterior</option>
+                                </select>
                             </div>
-                            <select id="category" className="w-full rounded" name="category"
-                                    required>
-                                <option value="Interior">Interior</option>
-                                <option value="Exterir">Exterir</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="price" value="Unit Price (Rs.)"/>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="price" value="Unit Price (Rs.)"/>
+                                </div>
+                                <TextInput id="price"
+                                           type="number"
+                                           name="price"
+                                           placeholder="1000"
+                                           value={price}
+                                           onChange={(e) => setPrice(e.target.value)}
+                                           required/>
                             </div>
-                            <TextInput id="price" type="number" name="price" placeholder="1000" required/>
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="volume" value="Volume (L)"/>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="volume" value="Volume (L)"/>
+                                </div>
+                                <TextInput id="volume"
+                                           type="text"
+                                           name="volume"
+                                           placeholder="5"
+                                           value={volume}
+                                           onChange={(e) => setVolume(e.target.value)}
+                                           />
                             </div>
-                            <TextInput id="volume" type="number" name="volume" placeholder="5" required/>
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="image" value="Image"/>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="image" value="Image"/>
+                                </div>
+                                <TextInput id="image"
+                                           type="file"
+                                           name="image"
+                                           onChange={(e) => setImage(e.target.files[0])}
+                                           accept="image/*"
+                                           required/>
                             </div>
-                            <TextInput id="image" type="file" name="image" required/>
+                            <div className="w-full flex items-center justify-center pl-8 pr-8">
+                                <Button type="submit">
+                                    <span style={{marginRight: '5px'}}>Done &nbsp;</span>
+                                    <span style={{verticalAlign: 'middle'}}>
+                                        <FontAwesomeIcon icon={faCheck}/>
+                                    </span>
+                                </Button>
+                            </div>
                         </div>
-                        <div className="w-full grid place-content-center pl-8 pr-8">
-                            <Button>
-                                <FontAwesomeIcon icon={faCheck} />
-                            </Button>
-                        </div>
-                    </div>
+                    </form>
                 </Modal.Body>
             </Modal>
         </div>
