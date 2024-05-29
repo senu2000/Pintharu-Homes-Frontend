@@ -11,15 +11,12 @@ export default function Home() {
                 <div className="editnavbar">
                     <MyNavBar/>
                 </div>
-
-
                 <div className="middlecontent">
                     <div className="editadssection">
                         <AdsSection/>
                     </div>
                 </div>
             </div>
-
             <div><MyFooter/></div>
 
         </>
