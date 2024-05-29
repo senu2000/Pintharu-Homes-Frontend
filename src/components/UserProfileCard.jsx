@@ -4,7 +4,7 @@ import "../css/UserProfileCard.css";
 function UserProfileCard(props) {
     return (
         <div className="card-container">
-            <div className="m-8">
+            <div className="m-5">
                 <div className="w-64 mx-auto bg-[#C7C3BF] rounded-2xl px-8 py-6 shadow-lg or-shadow">
                     {/*#20354b*/}
                     <div className="flex items-center justify-between">

@@ -84,6 +84,7 @@ function UserProfile(props) {
                         <UserProfileCard message="Make a appoinment" image={Img1}/>
                         <UserProfileCard message="Chat with Pintharu Homes" image={Img2}/>
                         <UserProfileCard message="Try AI Paint Assistant" image={Img2}/>
+                        <UserProfileCard message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart" image={Img2}/>
                         <UserProfileCard message="Check My Orders" image={Img2}/>
                     </div>
                 </div>
