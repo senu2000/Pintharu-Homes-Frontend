@@ -19,9 +19,6 @@ export default function Home() {
                 <div className="editnavbar">
                     <MyNavBar/>
                 </div>
-
-
-
                 <div className="middlecontent">
                     <div className="editadssection">
                         <AdsSection/>
@@ -88,11 +85,7 @@ export default function Home() {
                     <Test2/>
                 </div>
             </div>
-            {/*<div>hdbbweb</div>*/}
-
-
             <div><MyFooter/></div>
-
         </>
     );
 }

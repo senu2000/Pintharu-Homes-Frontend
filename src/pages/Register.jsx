@@ -5,6 +5,8 @@ import {faCheck} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import {displayErrorToast, displaySuccessToast} from "../components/ToastProvider.jsx";
 import {useNavigate} from "react-router-dom";
+import SignupForm from '../components/Signup';
+
 
 function Register(props) {
 
@@ -19,7 +21,7 @@ function Register(props) {
     function saveUser(e) {
         e.preventDefault();
 
-        const employee = { username, password, phone_number, address, role };
+        const employee = {username, password, phone_number, address, role};
         console.log(employee);
 
         if (username === '' || password === '' || phone_number === '' || address === '') {
@@ -52,73 +54,83 @@ function Register(props) {
     }
 
     return (
-        <div>
-            <form>
-                <div className="space-y-6">
-                    <h3 className="text-xl font-medium text-gray-900 dark:text-white flex items-center justify-center">
-                        Add New User</h3>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="username" value="Email (username)"/>
+        <>
+            <div>
+                <form>
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-medium text-gray-900 dark:text-white flex items-center justify-center">
+                            Add New User</h3>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="username" value="Email (username)"/>
+                            </div>
+                            <TextInput
+                                id="username"
+                                placeholder="user@gmail.com"
+                                name="username"
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
                         </div>
-                        <TextInput
-                            id="username"
-                            placeholder="user@gmail.com"
-                            name="username"
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="password" value="Password"/>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="password" value="Password"/>
+                            </div>
+                            <TextInput
+                                id="password"
+                                type="password"
+                                name="password"
+                                placeholder="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                required/>
                         </div>
-                        <TextInput
-                            id="password"
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            required/>
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="phone_number" value="Phone No"/>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="phone_number" value="Phone No"/>
+                            </div>
+                            <TextInput id="phone_number"
+                                       type="text"
+                                       name="phone_number"
+                                       placeholder="07xxxxxxxx"
+                                       value={phone_number}
+                                       onChange={(e) => setPhoneNo(e.target.value)}
+                                       required/>
                         </div>
-                        <TextInput id="phone_number"
-                                   type="text"
-                                   name="phone_number"
-                                   placeholder="07xxxxxxxx"
-                                   value={phone_number}
-                                   onChange={(e) => setPhoneNo(e.target.value)}
-                                   required/>
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="address" value="Address"/>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="address" value="Address"/>
+                            </div>
+                            <TextInput id="address"
+                                       type="text"
+                                       name="address"
+                                       placeholder="5/14, Ganga Addarawatta, Galle"
+                                       value={address}
+                                       onChange={(e) => setAddress(e.target.value)}
+                                       required
+                            />
                         </div>
-                        <TextInput id="address"
-                                   type="text"
-                                   name="address"
-                                   placeholder="5/14, Ganga Addarawatta, Galle"
-                                   value={address}
-                                   onChange={(e) => setAddress(e.target.value)}
-                                   required
-                        />
-                    </div>
-                    <div className="w-full flex items-center justify-center pl-8 pr-8">
-                        <Button onClick={saveUser}>
-                            <span style={{marginRight: '5px'}}>Done &nbsp;</span>
-                            <span style={{verticalAlign: 'middle'}}>
+                        <div className="w-full flex items-center justify-center pl-8 pr-8">
+                            <Button onClick={saveUser}>
+                                <span style={{marginRight: '5px'}}>Done &nbsp;</span>
+                                <span style={{verticalAlign: 'middle'}}>
                                         <FontAwesomeIcon icon={faCheck}/>
                                     </span>
-                        </Button>
+                            </Button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+
+
+            <div className="SignupBack">
+
+                <SignupForm/>
+            </div>
+        </>
+
+
     );
 }
 

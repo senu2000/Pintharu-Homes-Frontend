@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import {displayErrorToast, displaySuccessToast} from "../components/ToastProvider.jsx";
+import Loginform from "../components/Loginform";
 
 function Login(props) {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Login(props) {
     function saveUser(e) {
         e.preventDefault();
 
-        const userDetails = { username, password };
+        const userDetails = {username, password};
 
         if (username === '' || password === '') {
             displayErrorToast("All field are required");
@@ -76,7 +77,7 @@ function Login(props) {
                         Add New User</h3>
                     <div>
                         <div className="mb-2 block">
-                            <Label htmlFor="username" value="Email (username)" />
+                            <Label htmlFor="username" value="Email (username)"/>
                         </div>
                         <TextInput
                             id="username"
@@ -90,7 +91,7 @@ function Login(props) {
                     </div>
                     <div>
                         <div className="mb-2 block">
-                            <Label htmlFor="password" value="Password" />
+                            <Label htmlFor="password" value="Password"/>
                         </div>
                         <TextInput
                             id="password"
@@ -98,18 +99,22 @@ function Login(props) {
                             name="password"
                             placeholder="password"
                             onChange={(e) => setPassword(e.target.value)}
-                            required />
+                            required/>
                     </div>
                     <div className="w-full flex items-center justify-center pl-8 pr-8">
                         <Button onClick={saveUser}>
-                            <span style={{ marginRight: '5px' }}>Done &nbsp;</span>
-                            <span style={{ verticalAlign: 'middle' }}>
-                                <FontAwesomeIcon icon={faCheck} />
+                            <span style={{marginRight: '5px'}}>Done &nbsp;</span>
+                            <span style={{verticalAlign: 'middle'}}>
+                                <FontAwesomeIcon icon={faCheck}/>
                             </span>
                         </Button>
                     </div>
                 </div>
             </form>
+            <div className="LoginBack">
+
+                <Loginform/>
+            </div>
         </div>
     );
 }
