@@ -8,6 +8,8 @@ import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
 import React, {useEffect, useRef} from "react";
 import ProjectCountSection from "../components/ProjectCountSection.jsx";
 import {Button} from "flowbite-react";
+import CalendlyWidget from "../components/CalendlyWidget.jsx";
+import Test2 from "../components/Test2.jsx";
 
 
 export default function Home() {
@@ -82,6 +84,8 @@ export default function Home() {
                             </button>
                         </div>
                     </div>
+                    <CalendlyWidget/>
+                    <Test2/>
                 </div>
             </div>
             {/*<div>hdbbweb</div>*/}

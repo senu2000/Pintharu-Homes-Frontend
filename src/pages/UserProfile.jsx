@@ -1,6 +1,9 @@
 import React from 'react';
 import Img1 from "../../public/Images/video-call-icon-logo.jpg";
 import Img2 from "../../public/Images/chat.png";
+import Img3 from "../../public/Images/paint-assistant-logo.png";
+import Img4 from "../../public/Images/cart-logo-2.jpg";
+import Img5 from "../../public/Images/order-logo.jpg";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEnvelope, faLocationDot, faPhone, faCircleCheck} from '@fortawesome/free-solid-svg-icons'
 import "../css/UserProfile.css";
@@ -28,15 +31,15 @@ function UserProfile(props) {
                                             </div>
                                         </div>
                                         <div
-                                            className="w-full lg:w-4/12 lg:px-48 order-1 lg:text-right lg:self-start mt-16 lg:mt-0">
-                                            <div className="py-6 px-3 mt-4 lg:mt-0">
+                                            className="w-full lg:w-4/12 lg:px-48 order-1 lg:text-right lg:self-start mt-0 lg:mt-0">
+                                            <div className="py-4 lg:py-6 px-8 lg:px-1 mt-4 lg:mt-0">
                                                 <Link to="/">
                                                     <MainBtn>Back to Home</MainBtn>
                                                 </Link>
                                             </div>
                                         </div>
                                         <div className="w-full lg:w-4/12 lg:px-4 order-3 lg:text-right lg:self-start">
-                                            <div className="py-6 px-3 mt-6 lg:mt-0">
+                                            <div className="py-3 lg:py-6 px-0.5 lg:px-12 mt-6 lg:mt-0">
                                                 <Link to="/">
                                                     <MainBtn>Logout</MainBtn>
                                                 </Link>
@@ -45,9 +48,8 @@ function UserProfile(props) {
                                     </div>
 
                                     <div className="text-center ">
-                                        <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                                            <FontAwesomeIcon icon={faEnvelope}/> &nbsp;
-                                            senuraadithya4@gmail.com
+                                        <h3 className="text-2xl lg:text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                                            <FontAwesomeIcon icon={faEnvelope} style={{height:"27px"}}/> senuraadithya4@gmail.com
                                         </h3>
                                         <div
                                             className="text-sm leading-normal mt-0 mb-3 text-blueGray-400 font-bold uppercase">
@@ -81,11 +83,11 @@ function UserProfile(props) {
                         </div>
                     </div>
                     <div className="lg:flex justify-center">
-                        <UserProfileCard message="Make a appoinment" image={Img1}/>
+                        <UserProfileCard message="Make an appoinment" image={Img1}/>
                         <UserProfileCard message="Chat with Pintharu Homes" image={Img2}/>
-                        <UserProfileCard message="Try AI Paint Assistant" image={Img2}/>
-                        <UserProfileCard message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart" image={Img2}/>
-                        <UserProfileCard message="Check My Orders" image={Img2}/>
+                        <UserProfileCard message="Try AI Paint Assistant" image={Img3}/>
+                        <UserProfileCard message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart" image={Img4}/>
+                        <UserProfileCard message="Check My Orders" image={Img5}/>
                     </div>
                 </div>
             </div>

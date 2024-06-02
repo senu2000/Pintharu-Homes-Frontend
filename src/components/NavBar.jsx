@@ -2,6 +2,7 @@ import { Button, Navbar } from "flowbite-react";
 import React from "react";
 import "../css/NavBar.css";
 import Img1 from "../../public/Images/Logo.png";
+import {Link} from "react-router-dom";
 
 export default function MyNavBar() {
     return (
@@ -25,9 +26,8 @@ export default function MyNavBar() {
                     </div>
 
                     <div>
-                        <Button className="profilebtn">Profile</Button>
+                        <Link to="/userProfile"><Button className="profilebtn">Profile</Button></Link>
                         <Navbar.Toggle className="togglebtnedt"/>
-
                     </div>
 
                 </Navbar>
