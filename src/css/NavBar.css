@@ -24,7 +24,7 @@
 }
 .profileBtnContainer2 {
     display: none;
-    justify-content: center; /* Horizontally center the button */
+    justify-content: center;
     align-items: center;
     margin-left: 7px;
 }

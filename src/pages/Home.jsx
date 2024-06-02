@@ -81,8 +81,8 @@ export default function Home() {
                             </button>
                         </div>
                     </div>
-                    <CalendlyWidget/>
-                    <Test2/>
+                    {/*<CalendlyWidget/>*/}
+                    {/*<Test2/>*/}
                 </div>
             </div>
             <div><MyFooter/></div>
