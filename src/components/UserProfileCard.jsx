@@ -5,7 +5,7 @@ import MainBtn from "./MainBtn.jsx";
 function UserProfileCard(props) {
     return (
         <div className="card-container">
-            <div className="m-5 mb-16">
+            <div className="mb-16">
                 <div className="w-64 mx-auto bg-[#C7C3BF] rounded-2xl px-8 py-6 shadow-lg or-shadow">
                     {/*#20354b*/}
                     <div className="mt-6 w-fit mx-auto">

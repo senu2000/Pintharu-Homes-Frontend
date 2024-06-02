@@ -69,7 +69,10 @@
       }
       .linksignup{
         color: blue;
-        text-decoration: underline;
+        text-decoration: none;
+      }
+      .linksignup:hover{
+          color: #0b0b83;
       }
 
   
