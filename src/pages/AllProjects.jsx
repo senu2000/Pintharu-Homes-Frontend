@@ -5,32 +5,45 @@ import MyFooter from "../components/Footer";
 import "../css/ProjectDetailsCard.css";
 
 function AllProjects(props) {
-  return (
-    <>
-      <div className="ProjectDetailsBack">
-        <div className="content">
-          <MyNavBar />
-          <h1 className="projectTitle">Palette of Projects</h1>
-          <h1 className="sentence">"Explore our curated collection of past painting projects, where creativity meets craftsmanship."</h1>
-          <div className="card-container">
-            <div className="card-wrapper">
-              <ProjectDetailsCard />
+    return (
+        <>
+            <div className="ProjectDetailsBack">
+                <div className="content">
+                    <MyNavBar/>
+                    <h1 className="projectTitle">Palette of Projects</h1>
+                    <h1 className="sentence mb-8">" Explore our curated collection of past painting projects, where creativity
+                        meets craftsmanship "</h1>
+                  <div className="lg:grid grid-cols-3 sm:flex-col">
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                    <div className="card-wrapper pcard">
+                      <ProjectDetailsCard/>
+                    </div>
+                  </div>
+                  <MyFooter/>
+                </div>
             </div>
-            <div className="card-wrapper">
-              <ProjectDetailsCard />
-            </div>
-            <div className="card-wrapper">
-              <ProjectDetailsCard />
-            </div>
-            <div className="card-wrapper">
-              <ProjectDetailsCard />
-            </div>
-          </div>
-          <MyFooter />
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 }
 
 export default AllProjects;

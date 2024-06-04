@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Img1 from "../../public/Images/video-call-icon-logo.jpg";
 import Img2 from "../../public/Images/chat.png";
 import Img3 from "../../public/Images/paint-assistant-logo.png";
@@ -8,10 +8,64 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEnvelope, faLocationDot, faPhone, faCircleCheck} from '@fortawesome/free-solid-svg-icons'
 import "../css/UserProfile.css";
 import MainBtn from "../components/MainBtn.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import UserProfileCard from "../components/UserProfileCard.jsx";
+import {Button, Modal} from "flowbite-react";
+import {useState} from "react"
+import CalendlyWidget from "../components/CalendlyWidget.jsx";
+import axios from "axios";
 
 function UserProfile(props) {
+
+    const navigate = useNavigate();
+    const [openModal, setOpenModal] = useState(false);
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        fetchUserDetails();
+    }, []);
+
+    const fetchUserDetails = async () => {
+        try {
+            const tokenResponse = await axios.get(`http://localhost:8080/api/user/token/${localStorage.getItem('token')}`, );
+            console.log(tokenResponse);
+            const userId = tokenResponse.data.userId;
+            localStorage.setItem("userId", userId)
+
+            const userResponse = await axios.get(`http://localhost:8080/api/user/byId/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            const userData = userResponse.data;
+            setUserData(userData);
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+    };
+
+    const handleLogout = () => {
+        // axios.get('http://localhost:8080/logout',{
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem('token')}`
+        //     }
+        // });
+        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        navigate('/login');
+        window.location.reload();
+    };
+
+    if (!userData) {
+        return <div>Loading...</div>;
+    }
+
+    function goback() {
+        navigate("/");
+    }
+
+
     return (
         <div className="page-container">
             <div className="">
@@ -40,25 +94,30 @@ function UserProfile(props) {
                                         </div>
                                         <div className="w-full lg:w-4/12 lg:px-4 order-3 lg:text-right lg:self-start">
                                             <div className="py-3 lg:py-6 px-0.5 lg:px-12 mt-6 lg:mt-0">
-                                                <Link to="/">
+                                                <div onClick={handleLogout}>
                                                     <MainBtn>Logout</MainBtn>
-                                                </Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="text-center ">
                                         <h3 className="text-2xl lg:text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                                            <FontAwesomeIcon icon={faEnvelope} style={{height:"27px"}}/> senuraadithya4@gmail.com
+                                            <FontAwesomeIcon icon={faEnvelope}
+                                                             style={{height: "27px"}}/>&nbsp;
+                                            {/*senuraadithya4@gmail.com*/}
+                                            {userData.username}
                                         </h3>
                                         <div
                                             className="text-sm leading-normal mt-0 mb-3 text-blueGray-400 font-bold uppercase">
                                             <FontAwesomeIcon icon={faLocationDot}/> &nbsp;
-                                            2/27, Ganga Addarawatta, Makuluwa, Galle
+                                            {/*2/27, Ganga Addarawatta, Makuluwa, Galle*/}
+                                            {userData.address}
                                         </div>
                                         <div className="mb-2 text-blueGray-600 ">
                                             <FontAwesomeIcon icon={faPhone}/> &nbsp;
-                                            071610624
+                                            {/*071610624*/}
+                                            {userData.phone_number}
                                         </div>
                                         <div className="mb-2 text-blueGray-600">
                                             <FontAwesomeIcon icon={faCircleCheck} style={{color: "#63E6BE"}}/> &nbsp;
@@ -82,12 +141,40 @@ function UserProfile(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="lg:flex justify-center">
-                        <UserProfileCard message="Make an appoinment" image={Img1}/>
-                        <UserProfileCard message="Chat with Pintharu Homes" image={Img2}/>
-                        <UserProfileCard message="Try AI Paint Assistant" image={Img3}/>
-                        <UserProfileCard message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart" image={Img4}/>
-                        <UserProfileCard message="Check My Orders" image={Img5}/>
+                    <div className="lg:grid lg:grid-cols-5 sm:flex-col">
+                        <div onClick={() => setOpenModal(true)}>
+                            <UserProfileCard message="Make an appoinment" image={Img1}/>
+                        </div>
+                        <div>
+                            <UserProfileCard message="Chat with Pintharu Homes" image={Img2}/>
+                        </div>
+                        <div>
+                            <UserProfileCard message="Try AI Paint Assistant" image={Img3}/>
+                        </div>
+                        <div>
+                            <UserProfileCard
+                                message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart"
+                                image={Img4}/>
+                        </div>
+                        <div>
+                            <UserProfileCard message="Check My Orders" image={Img5}/>
+                        </div>
+
+                        <Modal show={openModal} onClose={() => setOpenModal(false)}>
+                            <Modal.Header className="justify-center text-center font-bold">Take a 30-min meeting
+                                with our experts and make your paint job easier</Modal.Header>
+                            <Modal.Body>
+                                <div className="space-y-6">
+                                    <CalendlyWidget/>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer className="justify-center">
+                                <Button color="gray" onClick={() => setOpenModal(false)}>
+                                    Back
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+
                     </div>
                 </div>
             </div>

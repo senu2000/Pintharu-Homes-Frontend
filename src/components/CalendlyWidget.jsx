@@ -15,7 +15,7 @@ const CalendlyWidget = () => {
     }, []);
 
     return (
-        <div className="calendly-inline-widget" data-url="https://calendly.com/cst20052" style={{ minWidth: '320px', height: '700px' }}></div>
+        <div className="calendly-inline-widget" data-url="https://calendly.com/cst20052" style={{ minWidth: '320px', height: '400px' }}></div>
     );
 };
 

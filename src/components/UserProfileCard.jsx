@@ -1,6 +1,5 @@
 import React from 'react';
 import "../css/UserProfileCard.css";
-import MainBtn from "./MainBtn.jsx";
 
 function UserProfileCard(props) {
     return (
