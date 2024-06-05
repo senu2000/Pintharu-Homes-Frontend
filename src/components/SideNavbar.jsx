@@ -2,14 +2,16 @@ import React from 'react';
 import { Sidebar } from "flowbite-react";
 import "../css/SideNavbar.css";
 import {motion} from "framer-motion";
-import { Link, useLocation } from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import AddProductBtnModel from "./AddProductBtnModel.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPaintRoller, faArrowDownShortWide, faPercentage, faComments, faUser, faRightFromBracket, faSheetPlastic} from '@fortawesome/free-solid-svg-icons'
 import AddUserBtnModel from "./AddUserBtnModel.jsx";
+import AddProjectBtnModel from "./AddProjectBtnModel.jsx";
 
 function SideNavbar(props) {
 
+    const navigate = useNavigate();
     const location = useLocation();
 
     let className = 'full-side ';
@@ -45,6 +47,19 @@ function SideNavbar(props) {
             className6 += 'bg-blue-100';
             break;
     }
+
+    const handleLogout = () => {
+        // axios.get('http://localhost:8080/logout',{
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem('token')}`
+        //     }
+        // });
+        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        navigate('/login');
+        window.location.reload();
+    };
 
     return (
         <motion.div className={className + ' rounded-tr-[150px] rounded-bl-[150px]'}
@@ -130,12 +145,13 @@ function SideNavbar(props) {
                                     </Link>
                                 </div>
                                 <div className='div2 flex justify-end'>
-                                    <AddProductBtnModel/>
+                                    <AddProjectBtnModel displaySuccessProjectToast={props.displaySuccessProjectToast}
+                                                        displayErrorProjectToast={props.displayErrorProjectToast}/>
                                 </div>
                             </div>
                         </Sidebar.Item>
                         <Sidebar.Item className='nav-item'>
-                            <div className='grid grid-cols-2 place-content-between'>
+                            <div className='grid grid-cols-2 place-content-between' onClick={handleLogout}>
                                 <div className='div1'>
                                     <Link to="/"
                                           className="font-medium text-cyan-600 hover:text-blue-900 dark:text-cyan-500">

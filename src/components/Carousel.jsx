@@ -3,7 +3,7 @@ import "../css/Carousel.css";
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-// import crsl1 from "../../public/Images/Carousel1.jpg";
+import crsl1 from "../../public/Images/Carousel1.jpg";
 // import crsl2 from "../../public/Images/Carousel2.jpg";
 // import crsl3 from "../../public/Images/Carousel3.jpg";
 // import crsl4 from "../../public/Images/Carousel4.jpg";
@@ -84,14 +84,22 @@ export default function AdsSection() {
                     <Carousel
                         onSlideChange={(index) => console.log("onSlideChange()", index)}
                     >
-                        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-                            Slide 1
+                        <div
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                            {/*Slide 1*/}
+                            <img src={crsl1} alt=""/>
                         </div>
-                        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                        <div
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
                             Slide 2
                         </div>
-                        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                        <div
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
                             Slide 3
+                        </div>
+                        <div
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                            Slide 4
                         </div>
                     </Carousel>
                 </div>
