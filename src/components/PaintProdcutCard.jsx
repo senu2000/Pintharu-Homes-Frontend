@@ -1,6 +1,8 @@
 import {Card} from "flowbite-react";
 import '../css/PaintProdcutCard.css';
 import Prdct1 from "../../public/Images/Products/13-removebg-preview.png";
+import MainBtn from "./MainBtn.jsx";
+import React from "react";
 
 export default function PaintProdcutCard() {
     return (

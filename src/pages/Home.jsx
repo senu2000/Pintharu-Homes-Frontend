@@ -6,7 +6,11 @@ import SearchBar from "../components/SearchBar.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
 import React, {useEffect, useRef} from "react";
 import ProjectCountSection from "../components/ProjectCountSection.jsx";
-import {Button} from "flowbite-react";
+import MainBtn from "../components/MainBtn.jsx";
+import BrandsLogo from "../../public/Images/brandsLogos.png";
+import ContactUs from "../components/ContactUs.jsx";
+import Img1 from "../../public/Images/Logo.png";
+
 
 
 export default function Home() {
@@ -40,8 +44,9 @@ export default function Home() {
                     </tr>
                 </div>
                 <div className="container">
-                    <button className="noselect animatedbtn1">Show More<span className="animatedbtn"> >>></span>
-                    </button>
+                    {/*<button className="noselect animatedbtn1">Show More<span className="animatedbtn"> >>></span>*/}
+                    {/*</button>*/}
+                    <MainBtn>Show More</MainBtn>
                 </div>
             </div>
             <div>
@@ -62,8 +67,9 @@ export default function Home() {
                                     Witness how we bring imagination to life with each stroke. Our projects stand
                                     as testaments to our dedication to excellence and client satisfaction.</p>
                                 <div className="/">
-                                    <button className="noselect animatedbtn2">View Projects<span
-                                        className="animatedbtn"> >>></span></button>
+                                    {/*<button className="noselect animatedbtn2">View Projects<span*/}
+                                    {/*    className="animatedbtn"> >>></span></button>*/}
+                                    <MainBtn>View Projects</MainBtn>
                                 </div>
                             </div>
                         </td>
@@ -76,13 +82,29 @@ export default function Home() {
                             confident project planning. Start now to transform your space with certainty.
                         </div>
                         <div className="container2">
-                            <button className="noselect animatedbtn2">Calculate<span className="animatedbtn"> >>></span>
-                            </button>
+                            {/*<button className="noselect animatedbtn2">Calculate<span className="animatedbtn"> >>></span>*/}
+                            {/*</button>*/}
+                            <MainBtn>Calculate</MainBtn>
                         </div>
                     </div>
                 </div>
             </div>
-            {/*<div>hdbbweb</div>*/}
+            <div className="aboutuscontactus">
+                        <div className="aboutus">
+                            <h1 className="aboutusheading">ABOUT US</h1>
+                            <div className="aboutusline"></div>
+                            <p className="aboutuspara">Welcome to Pintharu Homes, a trusted name in the paint industry with a legacy of excellence. With five branches across <b>Kiribathgoda, Gampaha, Thalaahena, Udugampola, Mulleriyawa </b>, we proudly offer a diverse range of premium paints, ensuring the perfect solution for every need. Our expertise extends beyond supplying top-quality paints; we also specialize in comprehensive painting projects for homes, delivering exceptional craftsmanship and stunning results. Our commitment to quality, customer satisfaction, and innovative solutions makes us the preferred choice for all your painting needs. Join us in adding color to your world!</p>
+                                <div className="BrandsLogoEdit">
+                                    <img src={BrandsLogo} alt="Logo" />
+                                </div>
+                        </div>
+                        <div className="contactus">
+                            <h1 className="contactusheading">STAY CONNECT</h1>
+                            <div className="edithomeContactUs">
+                            <ContactUs/>
+                            </div>
+                        </div>
+            </div>
 
 
             <div><MyFooter/></div>

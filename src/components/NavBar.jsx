@@ -18,8 +18,8 @@ export default function MyNavBar() {
                             </Navbar.Link>
                             <Navbar.Link href="#" className="navitem">Products</Navbar.Link>
                             <Navbar.Link href="#" className="navitem">Projects</Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">About Us</Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">Contact Us</Navbar.Link>
+                            <Navbar.Link href="#" className="navitem">About Us/Contact Us</Navbar.Link>
+                            {/*<Navbar.Link href="#" className="navitem">Contact Us</Navbar.Link>*/}
 
                         </Navbar.Collapse>
                     </div>
