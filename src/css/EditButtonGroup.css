@@ -1,0 +1,98 @@
+/* Styles for the button group */
+.editbtntopic {
+    border-right-color: #fc6c41;
+    border-right-width: 4px;
+    border-radius: 0px !important;
+    margin-right: 15px;
+    color: white;
+    backdrop-filter: blur(4px);
+}
+
+.editbtnitem {
+    border-bottom-color: white;
+    border-bottom-width: 2px;
+    border-radius: 0px !important;
+    margin-right: 8px;
+    color: white;
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.editbtnitem:hover {
+    border-radius: 0px !important;
+    background-color: white;
+    border: none !important;
+    margin-right: 8px;
+    color: #333333;
+}
+
+.editbtnitem.active {
+    border-radius: 0px !important;
+    background-color: white;
+    border: none !important;
+    margin-right: 8px;
+    color: #333333;
+}
+
+/* Custom styles for the modal */
+.modal-content {
+    width: 80%; /* Set the width of the modal */
+    max-width: 400px; /* Optionally, set a maximum width */
+    margin: 0 auto; /* Center the modal horizontally */
+}
+
+@media (max-width: 640px) {
+    .shopheading{
+        scale: 80%;
+    }
+
+    .button-group {
+        display: none;
+    }
+
+    .editmodal {
+        scale: 20%;
+    }
+
+    .modal-button {
+        display: block;
+        color: white;
+        backdrop-filter: blur(4px);
+        border-color: white;
+        border-width: 1px;
+        margin: 0 auto;
+    }
+
+    .editbtnitem {
+        color: #333333;
+        background-color: transparent;
+        box-shadow: none;
+        border: none !important;
+    }
+
+    .editbtnitem:hover {
+        border-radius: 0px !important;
+        background-color: #333333;
+        border: none !important;
+        color: #ffffff;
+    }
+
+    .editbtnitem.active {
+        border-radius: 0px !important;
+        background-color: #333333;
+        border: none !important;
+        margin-right: 8px;
+        color: #ffffff;
+    }
+}
+
+@media (min-width: 640.01px) {
+    .button-group {
+        display: flex;
+    }
+
+    .modal-button {
+        display: none;
+    }
+}

@@ -6,7 +6,6 @@ import Icon5 from "../../public/Images/Icons/paintbrush.png";
 import Categorysidebar from "../components/SideBar.jsx";
 import MyFooter from "../components/Footer.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
-import Filteredpath from "../components/FilteredPath.jsx";
 
 function AllPaintItems(props) {
     return (

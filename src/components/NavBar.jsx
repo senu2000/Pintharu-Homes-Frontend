@@ -13,13 +13,12 @@ export default function MyNavBar() {
                     </div>
                     <div className="elementedit">
                         <Navbar.Collapse className="toggleelmntedt">
-                            <Navbar.Link href="#"  className="navitem active" >
+                            <Navbar.Link href="Home"  className="navitem active" >
                                 Home
                             </Navbar.Link>
-                            <Navbar.Link href="#" className="navitem">Products</Navbar.Link>
+                            <Navbar.Link href="AllPaintItems" className="navitem">Products</Navbar.Link>
                             <Navbar.Link href="#" className="navitem">Projects</Navbar.Link>
                             <Navbar.Link href="#" className="navitem">About Us/Contact Us</Navbar.Link>
-                            {/*<Navbar.Link href="#" className="navitem">Contact Us</Navbar.Link>*/}
 
                         </Navbar.Collapse>
                     </div>

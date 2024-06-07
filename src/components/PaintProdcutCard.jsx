@@ -7,7 +7,7 @@ import React from "react";
 export default function PaintProdcutCard() {
     return (
         <Card
-            className="paintcardimg"
+            className="paintcardimg productcard"
             imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
             imgSrc={Prdct1}
         >
