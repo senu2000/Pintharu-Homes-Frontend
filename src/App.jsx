@@ -4,6 +4,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Home from './pages/Home.jsx';
 import AllProjects from './pages/AllProjects.jsx';
 import AllPaintItems from './pages/AllPaintItems.jsx';
+import AllPaintItemsDuluxe from "./pages/AllPaintItemsDuluxe.jsx";
+import AllPaintItemsMultilac from "./pages/AllPaintItemsMultilac.jsx";
+import AllPaintItemsRobbialac from "./pages/AllPaintItemsRobbialac.jsx";
+import AllPaintItemsJat from "./pages/AllPaintItemsJat.jsx";
+import AllPaintItemsWall from "./pages/AllPaintItemsWall.jsx";
+import AllPaintItemsWood from "./pages/AllPaintItemsWood.jsx";
+import AllPaintItemsFloor from "./pages/AllPaintItemsFloor.jsx";
 import SearchResults from './pages/SearchResults.jsx';
 import Quotation from './pages/Quotation.jsx';
 import UserProfile from './pages/UserProfile.jsx';
@@ -40,6 +47,13 @@ function App() {
                     <Route path="/home" element={<Home />} />
                     <Route path="/allProjects" element={<AllProjects />} />
                     <Route path="/allPaintItems" element={<AllPaintItems />} />
+                    <Route path="/allPaintItemsDuluxe" element={<AllPaintItemsDuluxe />} />
+                    <Route path="/allPaintItemsJat" element={<AllPaintItemsJat />} />
+                    <Route path="/allPaintItemsMultilac" element={<AllPaintItemsMultilac />} />
+                    <Route path="/allPaintItemsRobbialac" element={<AllPaintItemsRobbialac />} />
+                    <Route path="/allPaintItemsWall" element={<AllPaintItemsWall />} />
+                    <Route path="/allPaintItemsFloor" element={<AllPaintItemsFloor />} />
+                    <Route path="/allPaintItemsWood" element={<AllPaintItemsWood />} />
                     <Route path="/searchResults" element={<SearchResults />} />
                     <Route path="/quotationGeneration" element={<Quotation />} />
                     <Route

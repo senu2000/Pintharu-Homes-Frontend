@@ -6,8 +6,9 @@ import Icon5 from "../../public/Images/Icons/paintbrush.png";
 import Categorysidebar from "../components/SideBar.jsx";
 import MyFooter from "../components/Footer.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
+import Filteredpath from "../components/FilteredPath.jsx";
 
-function AllPaintItemsDuluxe(props) {
+function AllPaintItemsWood(props) {
     return (
         <div className="shoppageback">
             <div className="shopback">
@@ -30,7 +31,7 @@ function AllPaintItemsDuluxe(props) {
                     {/*<div className="editFilteredPath">*/}
                     {/*    <Filteredpath />*/}
                     {/*</div>*/}
-                    <h1 className="shopProductsHeading">Duluxe Paint Items</h1>
+                    <h1 className="shopProductsHeading">Wood Paints</h1>
                     <div className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards">
                         <PaintProdcutCard />
                         <PaintProdcutCard />
@@ -46,4 +47,4 @@ function AllPaintItemsDuluxe(props) {
     );
 }
 
-export default AllPaintItemsDuluxe;
+export default AllPaintItemsWood;

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Modal} from 'flowbite-react';
 import "../css/EditButtonGroup.css";
-import {useLocation,Link} from "react-router-dom";
+import {useLocation, Link} from "react-router-dom";
 
 export default function Buttongroup() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
@@ -24,9 +24,9 @@ export default function Buttongroup() {
         setIsModalOpen(false);
     };
 
-    const location =useLocation();
+    const location = useLocation();
 
-    const isLinkActive = (pathname)  => {
+    const isLinkActive = (pathname) => {
         return location.pathname === pathname ? 'active' : '';
     };
 
@@ -46,10 +46,14 @@ export default function Buttongroup() {
                             <Modal.Header>SELECT BRAND</Modal.Header>
                             <Modal.Body className="modal-body">
                                 <div className="modal-content">
-                                    <Button color="none" className="editbtnitem">Duluxe</Button>
-                                    <Button color="none" className="editbtnitem">Multilac</Button>
-                                    <Button color="none" className="editbtnitem">Jat</Button>
-                                    <Button color="none" className="editbtnitem">Robbilac</Button>
+                                    <Link to="/allPaintItemsDuluxe"><Button
+                                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsDuluxe')}`}>Duluxe</Button></Link>
+                                    <Link to="/allPaintItemsMultilac"><Button
+                                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsMultilac')}`}>Multilac</Button></Link>
+                                    <Link to="/allPaintItemsJat"><Button
+                                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsJat')}`}>Jat</Button></Link>
+                                    <Link to="/allPaintItemsRobbialac"><Button
+                                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsRobbialac')}`}>Robbialac</Button></Link>
                                 </div>
                             </Modal.Body>
                         </Modal>
@@ -58,10 +62,14 @@ export default function Buttongroup() {
             ) : (
                 <Button.Group className="button-group">
                     <Button color="none" className="editbtntopic">SELECT BRAND</Button>
-                    <Link to="/AllPaintItemsDuluxe" className={`${isLinkActive('/AllPaintItemsDuluxe')}`}><Button color="none" className="editbtnitem">Duluxe</Button></Link>
-                    <Button color="none" className="editbtnitem">Multilac</Button>
-                    <Button color="none" className="editbtnitem">Jat</Button>
-                    <Button color="none" className="editbtnitem">Robbilac</Button>
+                    <Link to="/allPaintItemsDuluxe"><Button
+                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsDuluxe')}`}>Duluxe</Button></Link>
+                    <Link to="/allPaintItemsMultilac"><Button
+                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsMultilac')}`}>Multilac</Button></Link>
+                    <Link to="/allPaintItemsJat"><Button
+                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsJat')}`}>Jat</Button></Link>
+                    <Link to="/allPaintItemsRobbialac"><Button
+                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsRobbialac')}`}>Robbialac</Button></Link>
                 </Button.Group>
             )}
         </div>

@@ -19,6 +19,13 @@
     font-size: 25px;
     margin-left: 20px;
 }
+.sidebaritemsEdit.active{
+    background-color: #333333;
+    color: white;
+}
+.sidebaritemsEdit{
+    margin-top: 5px;
+}
 
 /* Sidebar item hover styles */
 .sidebaritemsEdit:hover {

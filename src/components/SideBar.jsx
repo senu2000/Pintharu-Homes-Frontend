@@ -1,5 +1,6 @@
 import { Sidebar } from "flowbite-react";
 import "../css/Sidebar.css";
+import {useLocation,Link} from "react-router-dom";
 
 export default function Categorysidebar() {
     const toggleSidebar = () => {
@@ -7,6 +8,11 @@ export default function Categorysidebar() {
         const content = document.getElementById('content');
         sidebar.classList.toggle('sidebar-visible');
         content.classList.toggle('blur-background');
+    };
+    const location = useLocation();
+
+    const isLinkActive = (pathname) => {
+        return location.pathname === pathname ? 'active' : '';
     };
 
     return (
@@ -29,16 +35,15 @@ export default function Categorysidebar() {
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
                         <h1 className="sidebarheading">Category</h1>
-                        <Sidebar.Collapse label="Wall Paints" className="sidebaritemsEdit">
-                            <Sidebar.Item href="#">Interior</Sidebar.Item>
-                            <Sidebar.Item href="#">Exterior</Sidebar.Item>
-                        </Sidebar.Collapse>
-                        <Sidebar.Item href="#" className="sidebaritemsEdit">
+                        <Link to="/allPaintItemsWall"><Sidebar.Item className={`sidebaritemsEdit ${isLinkActive('/allPaintItemsWall')}`}>
+                            Wall Paints
+                        </Sidebar.Item></Link>
+                        <Link to="/allPaintItemsFloor"><Sidebar.Item className={`sidebaritemsEdit ${isLinkActive('/allPaintItemsFloor')}`}>
                             Floor Paints
-                        </Sidebar.Item>
-                        <Sidebar.Item href="#" className="sidebaritemsEdit">
+                        </Sidebar.Item></Link>
+                        <Link to="/allPaintItemsWood"><Sidebar.Item className={`sidebaritemsEdit ${isLinkActive('/allPaintItemsWood')}`}>
                             Wood and Furniture
-                        </Sidebar.Item>
+                        </Sidebar.Item></Link>
                     </Sidebar.ItemGroup>
                 </Sidebar.Items>
             </Sidebar>

@@ -31,7 +31,7 @@ function AllPaintItems(props) {
                     {/*<div className="editFilteredPath">*/}
                     {/*    <Filteredpath />*/}
                     {/*</div>*/}
-                    <h1 className="shopProductsHeading">Interior Wall Paints</h1>
+                    <h1 className="shopProductsHeading">Wall Paints</h1>
                     <div className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards">
                         <PaintProdcutCard />
                         <PaintProdcutCard />
