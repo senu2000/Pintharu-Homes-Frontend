@@ -1,0 +1,75 @@
+.signup-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    
+  }
+  
+  .signupform {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.501) !important;
+    border-radius: 10px;
+    margin-left: auto;
+    width: 500px;
+    height: 600px;
+    backdrop-filter: blur(5px);
+    
+  }
+  
+  .SignupBack{
+    background-color: rgb(235, 235, 235);
+    background-image: url('../public/Images/signup.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center,top;
+
+
+  }
+  .signupMessage{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60px; 
+    color: whitesmoke;
+    margin-left: 50px;
+    margin-right: 100px;
+    padding-bottom: 100px;
+
+
+  }
+
+ .signupName{
+    font-size: 30px;
+    font-family: serif;
+    text-align: center;
+    color: black;
+ }
+
+ .signupMessageTd{
+    text-align: left;
+  vertical-align: middle;
+    
+
+ }
+
+
+   @media (min-width: 1200px) {
+    .signupform {
+        width: 400px; 
+        margin-left: 200px; 
+        margin-right: auto; 
+        color: whitesmoke;
+    }
+        
+    }
+    @media (max-width: 768px) {
+        .signupform {
+            width: 400px; 
+            margin-left: 200px; 
+            margin-right: auto; 
+            color: whitesmoke;
+        }
+
+
+    }

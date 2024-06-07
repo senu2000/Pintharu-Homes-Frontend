@@ -1,8 +1,13 @@
 import React from 'react';
+import ImageUploader from "../components/ImageUploader.jsx";
+import PaintList from "../components/PaintList.jsx";
 
 function Cart(props) {
     return (
-        <div>cart page</div>
+        <div>
+            <ImageUploader/>
+            <PaintList/>
+        </div>
     );
 }
 

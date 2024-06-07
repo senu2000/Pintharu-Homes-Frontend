@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Loginform from "../components/Loginform";
+import MyNavBar from "../components/NavBar.jsx";
 
 function Login(props) {
+
     return (
-        <div>login Page</div>
+        <div>
+            <div className="LoginBack">
+                <MyNavBar/>
+                <Loginform onLoginSuccess={props.onLoginSuccess}/>
+            </div>
+        </div>
     );
 }
 

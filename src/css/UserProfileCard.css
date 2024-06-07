@@ -1,0 +1,13 @@
+.card-container {
+    transition: transform 0.3s;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+}
+
+.or-shadow:hover{
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+    bottom: -100px;
+}
+

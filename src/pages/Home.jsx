@@ -4,12 +4,14 @@ import MyNavBar from "../components/NavBar.jsx";
 import AdsSection from "../components/Carousel.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
+
 import React, {useEffect, useRef} from "react";
 import ProjectCountSection from "../components/ProjectCountSection.jsx";
 import MainBtn from "../components/MainBtn.jsx";
 import BrandsLogo from "../../public/Images/brandsLogos.png";
 import ContactUs from "../components/ContactUs.jsx";
 import Img1 from "../../public/Images/Logo.png";
+
 
 
 
@@ -20,8 +22,6 @@ export default function Home() {
                 <div className="editnavbar">
                     <MyNavBar/>
                 </div>
-
-
                 <div className="middlecontent">
                     <div className="editadssection">
                         <AdsSection/>
@@ -87,8 +87,11 @@ export default function Home() {
                             <MainBtn>Calculate</MainBtn>
                         </div>
                     </div>
+                    {/*<CalendlyWidget/>*/}
+                    {/*<Test2/>*/}
                 </div>
             </div>
+
             <div className="aboutuscontactus">
                         <div className="aboutus">
                             <h1 className="aboutusheading">ABOUT US</h1>
@@ -108,7 +111,6 @@ export default function Home() {
 
 
             <div><MyFooter/></div>
-
         </>
     );
 }

@@ -1,38 +1,95 @@
-import './App.css'
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import AllProjects from "./pages/AllProjects.jsx";
-import AllPaintItems from "./pages/AllPaintItems.jsx";
-import SearchResults from "./pages/SearchResults.jsx";
-import Quotation from "./pages/Quotation.jsx";
-import UserProfile from "./pages/UserProfile.jsx";
-import Admin from "./pages/Admin.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import Cart from "./pages/Cart.jsx";
-import Payment from "./pages/Payment.jsx";
-function App() {
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/Home.jsx';
+import AllProjects from './pages/AllProjects.jsx';
+import AllPaintItems from './pages/AllPaintItems.jsx';
+import SearchResults from './pages/SearchResults.jsx';
+import Quotation from './pages/Quotation.jsx';
+import UserProfile from './pages/UserProfile.jsx';
+import Admin from './pages/Admin.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import Cart from './pages/Cart.jsx';
+import Payment from './pages/Payment.jsx';
+import AdminChat from './pages/AdminChat.jsx';
+import AdminOrders from './pages/AdminOrders.jsx';
+import AdminRates from './pages/AdminRates.jsx';
+import AdminUsers from './pages/AdminUsers.jsx';
+import { Toaster } from 'sonner';
+import AdminProjects from './pages/AdminProjects.jsx';
+import Testing from "./components/Testing.jsx";
 
-  return (
-    <>
-        <BrowserRouter>
-            <Routes>
-                <Route index element={<Home/>}/>
-                <Route path={"/home"} element={<Home/>}/>
-                <Route path={"/allProjects"} element={<AllProjects/>}/>
-                <Route path={"/allPaintItems"} element={<AllPaintItems/>}/>
-                <Route path={"/searchResults"} element={<SearchResults/>}/>
-                <Route path={"/quotationGeneration"} element={<Quotation/>}/>
-                <Route path={"/userProfile"} element={<UserProfile/>}/>
-                <Route path={"/admin"} element={<Admin/>}/>
-                <Route path={"/login"} element={<Login/>}/>
-                <Route path={"/register"} element={<Register/>}/>
-                <Route path={"/cart"} element={<Cart/>}/>
-                <Route path={"/payment"} element={<Payment/>}/>
-            </Routes>
-        </BrowserRouter>
-    </>
-  )
+function App() {
+    const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
+
+    const updateAuthentication = () => {
+        const token = sessionStorage.getItem('token');
+        setIsAuthenticated(!!token);
+    };
+
+    useEffect(() => {
+        updateAuthentication();
+    }, []);
+
+    return (
+        <>
+            <Router>
+                <Routes>
+                    <Route index element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/allProjects" element={<AllProjects />} />
+                    <Route path="/allPaintItems" element={<AllPaintItems />} />
+                    <Route path="/searchResults" element={<SearchResults />} />
+                    <Route path="/quotationGeneration" element={<Quotation />} />
+                    <Route
+                        path="/userProfile"
+                        element={isAuthenticated ? <UserProfile /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/admin-product"
+                        element={isAuthenticated ? <Admin /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/admin-chat"
+                        element={isAuthenticated ? <AdminChat /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/admin-orders"
+                        element={isAuthenticated ? <AdminOrders /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/admin-rates"
+                        element={isAuthenticated ? <AdminRates /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/admin-users"
+                        element={isAuthenticated ? <AdminUsers /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/admin-projects"
+                        element={isAuthenticated ? <AdminProjects /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/cart"
+                        element={isAuthenticated ? <Cart /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/payment"
+                        element={isAuthenticated ? <Payment /> : <Navigate to="/login" />}
+                    />
+                    <Route path="/login" element={<Login onLoginSuccess={updateAuthentication} />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/test" element={<Testing />} />
+                </Routes>
+            </Router>
+            <Toaster richColors />
+        </>
+    );
 }
 
-export default App
+export default App;
+
+
+
+

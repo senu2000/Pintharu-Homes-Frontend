@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
+import SignupForm from '../components/Signup';
 
 function Register(props) {
+
     return (
-        <div>Registration Page</div>
+        <>
+            <div className="SignupBack">
+                <SignupForm/>
+            </div>
+        </>
     );
 }
 
