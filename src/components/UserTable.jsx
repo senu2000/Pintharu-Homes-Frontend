@@ -56,7 +56,9 @@ function UserTable(props) {
                                 <Table.Cell>{item.username}</Table.Cell>
                                 <Table.Cell>{item.address}</Table.Cell>
                                 <Table.Cell>{item.phone_number}</Table.Cell>
-                                <Table.Cell><DeleteBtnModel item={item} endpoint={"http://localhost:8080/api/user"} alert={"User"}/></Table.Cell>
+                                <Table.Cell className="flex justify-center items-center">
+                                    <DeleteBtnModel item={item} endpoint={"http://localhost:8080/api/user"} alert={"User"}/>
+                                </Table.Cell>
                             </Table.Row>
                         ))}
                     </Table.Body>

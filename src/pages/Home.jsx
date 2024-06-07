@@ -10,6 +10,7 @@ import ProjectCountSection from "../components/ProjectCountSection.jsx";
 import {Button} from "flowbite-react";
 import CalendlyWidget from "../components/CalendlyWidget.jsx";
 import Test2 from "../components/Test2.jsx";
+import {ContactUs} from "../components/ContactUsTest.jsx";
 
 
 export default function Home() {
@@ -81,6 +82,7 @@ export default function Home() {
                             </button>
                         </div>
                     </div>
+                    <ContactUs/>
                     {/*<CalendlyWidget/>*/}
                     {/*<Test2/>*/}
                 </div>
