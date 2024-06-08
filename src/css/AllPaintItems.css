@@ -1,0 +1,70 @@
+.shoppageback{
+    background-color: #ececec !important;
+}
+.editicon{
+    height: 90px;
+    display: inline;
+}
+.shopback{
+    background-image: url('../public/Images/shopback.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center,top;
+    height: 300px;
+}
+.shopheading{
+    text-align: center;
+    -webkit-text-stroke: 2.5px #ffffff;
+    color: transparent;
+    font-weight: bold;
+    font-size: 80px;
+}
+.EditBtnGroup{
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+@media (max-width: 769px) {
+    .shopback {
+        height: 450px;
+    }
+}
+.shopline{
+    background-color: #333333;
+    height: 3px;
+    margin-top: 4px;
+    margin-bottom: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.editFilteredPath{
+    padding-left: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.shopItemsSection{
+    background-color: #ececec;
+    display: flex;
+    margin-bottom: 30px;
+}
+.productcards{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+.paintcardimg{
+    margin-bottom: 10px;
+}
+.shopProductsHeading{
+    font-size: 40px;
+    font-weight: bold;
+    color: #333333;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+

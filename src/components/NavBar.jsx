@@ -20,6 +20,7 @@ export default function MyNavBar() {
                     </div>
                     <div className="elementedit justify-center content-center">
                         <Navbar.Collapse className="toggleelmntedt">
+
                             <Link to="/" className={`navitem smnavitem ${isLinkActive('/')}`}>Home</Link>
                             <Link to="/allPaintItems" className={`navitem smnavitem ${isLinkActive('/allPaintItems')}`}>Products</Link>
                             <Link to="/allProjects" className={`navitem smnavitem ${isLinkActive('/allProjects')}`}>Projects</Link>
@@ -30,6 +31,7 @@ export default function MyNavBar() {
                                     <Button className="profilebtn">Profile</Button>
                                 </Link>
                             </div>
+
                         </Navbar.Collapse>
                     </div>
                     <div className="rightside">

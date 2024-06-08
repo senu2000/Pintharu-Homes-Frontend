@@ -10,10 +10,12 @@
     text-align: center;
 }
 .productcard-button{
-    background-image: linear-gradient(to right, #40767d, #214c4f);
+    background-image: linear-gradient(to right, #fc6c41, #faad73);
+    color: #333333  !important;
 }
 .productcard-button:hover{
-    background-image: linear-gradient(to right, #214c4f, #40767d);
+    background-image: linear-gradient(to right, #faad73, #fc6c41);
+    color: #333333;
 }
 .productcard-button:active{
     border-color: #333333;

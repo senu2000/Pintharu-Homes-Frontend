@@ -81,7 +81,6 @@
 }
 .projectshomesection{
     background-image: url('../public/Images/projectsBackground.jpg');
-    /*height: 800px;*/
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center,top;
@@ -97,7 +96,6 @@
 }
 .projectssection{
     background-color: rgba(255, 255, 255, 0.6);
-    /*background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));*/
     backdrop-filter: blur(5px);
     margin-right: 80px;
     padding-left: 40px;
@@ -109,9 +107,6 @@
 .projectsectiontitle1{
     color: #fc6c41;
     text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.8);
-    /*background-image: linear-gradient(to bottom, #fc6c41, #3d3e40); !* Adjust the colors as needed *!*/
-    /*-webkit-background-clip: text; !* This ensures the text is filled with the gradient *!*/
-    /*color: transparent;*/
     font-size: 60px;
     font-weight: bold;
     margin-left: -2px;
@@ -148,7 +143,6 @@
     margin-left: 80px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.6);
-    /*background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));*/
     backdrop-filter: blur(5px);
     border-color: white;
     border-width: 1px;
@@ -232,7 +226,6 @@
 .animatedbtn1:hover {
     width: 170px;
     background-image: linear-gradient(to right, #214c4f, #40767d);
-    /*border: 2px  #777;*/
     margin: 0;
     color: white;
     border: none;
@@ -299,4 +292,172 @@
 .animatedbtn2:hover span {
     color: #333333;
     margin-left: 0;
+}
+
+.aboutus{
+    width: 60%;
+}
+
+.aboutuscontactus{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ececec;
+}
+.contactus{
+    width: 40%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    text-align: center;
+    background-color: #333333;
+}
+.aboutusheading{
+    font-size: 40px;
+    font-weight: bold;
+    color: #333333;
+    text-align: left;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    letter-spacing: 8px;
+}
+.contactusheading{
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #fc6c41, #faad73);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 30px;
+}
+.aboutusline{
+    height: 5px;
+    background-color: #333333;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 30px;
+    border-radius: 200px;
+}
+.aboutuspara{
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 30px;
+}
+.edithomeContactUs{
+    margin-right: 40px;
+    margin-left: 40px;
+    align-items: center;
+    width: auto;
+}
+.BrandsLogoEdit{
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+@media  (max-width: 759.98px){
+    .aboutuscontactus{
+        display: flex;
+        flex-direction: column;
+        background-color: #ececec;
+        align-items: center;
+    }
+    .aboutus{
+        width: 100%;
+        text-align: center;
+    }
+    .aboutuspara{
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .aboutusheading{
+        text-align: center;
+    }
+    .contactus{
+        width: 80%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(4px);
+    }
+}
+@media (min-width: 760px) and (max-width: 910px){
+    .aboutuscontactus{
+        display: flex;
+        flex-direction: column;
+        background-color: #ececec;
+        align-items: center;
+    }
+    .contactus{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 80%;
+        border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(4px);
+    }
+    .aboutus{
+        text-align: center;
+        width: 100%;
+    }
+    .aboutusheading{
+        font-size: 40px;
+        font-weight: bold;
+        color: #333333;
+        text-align: center;
+        margin-left: 80px;
+        margin-right: 80px;
+        margin-top: 40px;
+        margin-bottom: 5px;
+        letter-spacing: 8px;
+    }
+    .contactusheading{
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: bold;
+        margin-left: 80px;
+        margin-right: 80px;
+        margin-bottom: 30px;
+    }
+    .aboutusline{
+        height: 5px;
+        background-color: #333333;
+        margin-left: 80px;
+        margin-right: 80px;
+        margin-bottom: 30px;
+        border-radius: 200px;
+    }
+    .aboutuspara{
+        margin-bottom: 30px;
+    }
+    .edithomeContactUs{
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}
+
+.contactus-button {
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, #fc6c41, #faad73);
+    color: #333333;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.contactus-button:hover {
+    background-image: linear-gradient(to right, #faad73, #fc6c41);
+}
+.contactus-button:active {
+    background-image: linear-gradient(to right, rgb(161, 161, 161), #d9d9d9) !important;
 }

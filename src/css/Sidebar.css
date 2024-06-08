@@ -1,0 +1,100 @@
+/* Sidebar styles */
+.editsidebar {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    filter: none !important;
+    width: 200px !important;
+    height: 800px !important;
+    position: absolute; /* Fixed position */
+    z-index: 1000; /* Ensure it's on top */
+    background-color: white; /* Ensure background color */
+    transform: translateX(-100%); /* Initially hidden */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Sidebar heading styles */
+.sidebarheading {
+    color: #333333;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 20px;
+}
+.sidebaritemsEdit.active{
+    background-color: #333333;
+    color: white;
+}
+.sidebaritemsEdit{
+    margin-top: 5px;
+}
+
+/* Sidebar item hover styles */
+.sidebaritemsEdit:hover {
+    background-color: #333333 !important;
+    color: white;
+}
+
+/* Toggle button styles */
+.togglebtnSidebar {
+    background-color: #333333;
+    color: white !important;
+    margin-left: 30px !important;
+}
+
+.togglebtnSidebar:hover {
+    background-color: #fc6c41 !important;
+    color: #333333 !important;
+}
+
+/* Media query for larger screens - hide toggle button */
+@media (min-width: 640px) {
+    .togglebtnSidebar {
+        display: none; /* Hide toggle button */
+    }
+    .editsidebar {
+        transform: translateX(0); /* Sidebar is shown by default */
+        position: relative; /* Sidebar part of the normal flow */
+    }
+}
+
+/* Media query for small screens */
+@media (max-width: 640px) {
+    .sidebar-visible {
+        transform: translateX(2px); /* Show sidebar when visible */
+    }
+    /*.blur-background {*/
+    /*    filter: blur(4px) !important; !* Apply blur effect to the background *!*/
+    /*}*/
+    .shopItemsSection {
+        display: flex;
+        flex-direction: column;
+    }
+    .editsidebar{
+        border-color: #9a9a9a;
+        border-radius: 0px;
+        border-width: 2.5px;
+        height: fit-content !important;
+    }
+    .shopItemsSection.blur-background{
+        /*filter: blur(4px);*/
+    }
+}
+
+/* Base styles for product cards container */
+.productcards {
+    display: grid;
+    gap: 1rem; /* Adjust the gap between cards as needed */
+}
+
+/* 2 cards in one row for screens between 490px and 640px */
+@media (min-width: 490px) and (max-width: 640px) {
+    .productcards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 1 card in one row for screens smaller than 490px */
+@media (max-width: 489px) {
+    .productcards {
+        grid-template-columns: 1fr;
+    }
+}

@@ -8,7 +8,7 @@ import MyFooter from "../components/Footer.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
 import Filteredpath from "../components/FilteredPath.jsx";
 
-function AllPaintItems(props) {
+function AllPaintItemsWall(props) {
     return (
         <div className="shoppageback">
             <div className="shopback">
@@ -47,4 +47,4 @@ function AllPaintItems(props) {
     );
 }
 
-export default AllPaintItems;
+export default AllPaintItemsWall;
