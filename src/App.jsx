@@ -26,6 +26,7 @@ import AdminUsers from './pages/AdminUsers.jsx';
 import { Toaster } from 'sonner';
 import AdminProjects from './pages/AdminProjects.jsx';
 import Testing from "./components/Testing.jsx";
+import ContactUs from "./components/ContactUs.jsx";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
@@ -56,6 +57,7 @@ function App() {
                     <Route path="/allPaintItemsWood" element={<AllPaintItemsWood />} />
                     <Route path="/searchResults" element={<SearchResults />} />
                     <Route path="/quotationGeneration" element={<Quotation />} />
+                    <Route path="/contactus" element={<ContactUs />} />
                     <Route
                         path="/userProfile"
                         element={isAuthenticated ? <UserProfile /> : <Navigate to="/login" />}

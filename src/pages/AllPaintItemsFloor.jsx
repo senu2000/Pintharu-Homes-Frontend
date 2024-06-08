@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../css/AllPaintItems.css";
 import MyNavBar from "../components/NavBar.jsx";
 import Buttongroup from "../components/ButtonGroup.jsx";
@@ -7,8 +7,25 @@ import Categorysidebar from "../components/SideBar.jsx";
 import MyFooter from "../components/Footer.jsx";
 import PaintProdcutCard from "../components/PaintProdcutCard.jsx";
 import Filteredpath from "../components/FilteredPath.jsx";
+import axios from "axios";
 
 function AllPaintItemsFloor(props) {
+    const [paints, setPaints] = useState([]);
+
+    useEffect(() => {
+        const fetchPaints = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/paint/category/Floor Paints');
+                setPaints(response.data);
+            } catch (error) {
+                console.error('Error fetching paints:', error);
+            }
+        };
+
+        fetchPaints();
+        const intervalId = setInterval(fetchPaints, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
     return (
         <div className="shoppageback">
             <div className="shopback">
@@ -33,12 +50,17 @@ function AllPaintItemsFloor(props) {
                     {/*</div>*/}
                     <h1 className="shopProductsHeading">Floor Paints</h1>
                     <div className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards">
-                        <PaintProdcutCard />
-                        <PaintProdcutCard />
-                        <PaintProdcutCard />
-                        <PaintProdcutCard />
-                        <PaintProdcutCard />
-                        <PaintProdcutCard />
+                        {paints.map((item, index) =>(
+                            <div key={index}>
+                                <PaintProdcutCard item={item} />
+                            </div>
+                        ))}
+                        {/*<PaintProdcutCard />*/}
+                        {/*<PaintProdcutCard />*/}
+                        {/*<PaintProdcutCard />*/}
+                        {/*<PaintProdcutCard />*/}
+                        {/*<PaintProdcutCard />*/}
+                        {/*<PaintProdcutCard />*/}
                     </div>
                 </div>
             </div>

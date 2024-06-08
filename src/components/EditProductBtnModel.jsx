@@ -125,9 +125,10 @@ function EditProductBtnModel(props) {
                                         value={brand}
                                         onChange={(e) => setBrand(e.target.value)}
                                         required>
-                                    <option value="Nipolac">Nipolac</option>
+                                    <option value="Duluxe">Duluxe</option>
                                     <option value="Multilac">Multilac</option>
-                                    <option value="Robialc">Robialc</option>
+                                    <option value="Jat">Jat</option>
+                                    <option value="Robbialac">Robbialac</option>
                                 </select>
                             </div>
                             <div>
@@ -153,8 +154,9 @@ function EditProductBtnModel(props) {
                                         value={category}
                                         onChange={(e) => setCategory(e.target.value)}
                                         required>
-                                    <option value="Interior">Interior</option>
-                                    <option value="Exterior">Exterior</option>
+                                    <option value="Wall Paints">Wall Paints</option>
+                                    <option value="Floor Paints">Floor Paints</option>
+                                    <option value="Wood and Furniture">Wood and Furniture</option>
                                 </select>
                             </div>
                             <div>

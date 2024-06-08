@@ -4,11 +4,15 @@ import "../css/NavBar.css";
 import Img1 from "../../public/Images/Logo.png";
 import { Link, useLocation } from "react-router-dom";
 
-export default function MyNavBar() {
+export default function MyNavBar({ scrollToSection, contactUsRef }) {
     const location = useLocation();
 
     const isLinkActive = (pathname) => {
         return location.pathname === pathname ? 'active' : '';
+    };
+
+    const handleScroll = (sectionRef) => {
+        scrollToSection(sectionRef);
     };
 
     return (
@@ -24,8 +28,8 @@ export default function MyNavBar() {
                             <Link to="/" className={`navitem smnavitem ${isLinkActive('/')}`}>Home</Link>
                             <Link to="/allPaintItems" className={`navitem smnavitem ${isLinkActive('/allPaintItems')}`}>Products</Link>
                             <Link to="/allProjects" className={`navitem smnavitem ${isLinkActive('/allProjects')}`}>Projects</Link>
-                            <Link to="/aboutus" className={`navitem smnavitem ${isLinkActive('/aboutus')}`}>About Us</Link>
-                            <Link to="/contactus" className={`navitem smnavitem ${isLinkActive('/contactus')}`}>Contact Us</Link>
+                            {/*<Link to="/aboutus" className={`navitem smnavitem ${isLinkActive('/aboutus')}`}>About Us</Link>*/}
+                            <Link to="" className={`navitem smnavitem ${isLinkActive('/contactus')}`} onClick={() => handleScroll(contactUsRef)}>Get in Touch</Link>
                             <div className="profileBtnContainer2">
                                 <Link to="/userProfile">
                                     <Button className="profilebtn">Profile</Button>
