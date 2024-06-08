@@ -62,7 +62,7 @@ export default function Home() {
             <div className="homeproductssection">
                 <p className="homeproducttitle">FEATURED PRODUCTS</p>
                 <p className="homeproductsubtitle">Explore Our Selection of Featured Products</p>
-                <div className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards mb-12 mt-8">
+                <div className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards mb-12 mt-8 ml-12 mr-12">
                     {paints.map((item, index) => (
                         <div key={index}>
                             <PaintProdcutCard item={item}/>
