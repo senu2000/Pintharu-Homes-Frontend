@@ -7,19 +7,56 @@ import {
     TextInput,
 } from "flowbite-react";
 import "../css/QuotationCard.css";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function QuotationCardWall() {
     const [showEstimate, setShowEstimate] = useState(false);
     const [estimate, setEstimate] = useState("");
+    const [interiorSkimcoatputty, setInteriorSkimcoatputty] = useState("");
+    const [interiorFiller, setInteriorFiller] = useState("");
+    const [interiorPaint, setInteriorPaint] = useState("");
+    const [exteriorSkimcoatputty, setExteriorSkimcoatputty] = useState("");
+    const [exteriorFiller, setExteriorFiller] = useState("");
+    const [exteriorPaint, setExteriorPaint] = useState("");
+
+    useEffect(() => {
+        const fetchQuotations = async () => {
+            try {
+                const response1 = await axios.get('http://localhost:8080/api/quotation/1');
+                setInteriorSkimcoatputty(response1.data.unit_price);
+
+                const response2 = await axios.get('http://localhost:8080/api/quotation/2');
+                setInteriorFiller(response2.data.unit_price);
+
+                const response3 = await axios.get('http://localhost:8080/api/quotation/3');
+                setInteriorPaint(response3.data.unit_price);
+
+                const response4 = await axios.get('http://localhost:8080/api/quotation/4');
+                setExteriorSkimcoatputty(response4.data.unit_price);
+
+                const response5 = await axios.get('http://localhost:8080/api/quotation/5');
+                setExteriorFiller(response5.data.unit_price);
+
+                const response6 = await axios.get('http://localhost:8080/api/quotation/6');
+                setExteriorPaint(response6.data.unit_price);
+            } catch (error) {
+                console.error('Error fetching Users:', error);
+            }
+        };
+
+        fetchQuotations();
+        const intervalId = setInterval(fetchQuotations, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
 
     const rates = {
-        interior_skimcoatputty: 100,
-        interior_filler: 50,
-        interior_paint: 75,
-        exterior_skimcoatputty: 110,
-        exterior_filler: 60,
-        exterior_paint: 85,
+        interior_skimcoatputty: interiorSkimcoatputty,
+        interior_filler: interiorFiller,
+        interior_paint: interiorPaint,
+        exterior_skimcoatputty: exteriorSkimcoatputty,
+        exterior_filler: exteriorFiller,
+        exterior_paint: exteriorPaint,
     };
 
     const calculateTotalCost = (area, wallType, preferences) => {
