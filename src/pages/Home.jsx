@@ -41,7 +41,7 @@ export default function Home() {
     };
 
     const scrollToSection = (sectionRef) => {
-        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        sectionRef.current.scrollIntoView({behavior: 'smooth'});
     };
 
     return (
@@ -62,7 +62,8 @@ export default function Home() {
             <div className="homeproductssection">
                 <p className="homeproducttitle">FEATURED PRODUCTS</p>
                 <p className="homeproductsubtitle">Explore Our Selection of Featured Products</p>
-                <div className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards mb-12 mt-8 ml-12 mr-12">
+                <div
+                    className="xl:grid-cols-4 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 xs:flex-col productcards mb-12 mt-8 ml-12 mr-12">
                     {paints.map((item, index) => (
                         <div key={index}>
                             <PaintProdcutCard item={item}/>
@@ -112,7 +113,9 @@ export default function Home() {
                         <div className="container2">
                             {/*<button className="noselect animatedbtn2">Calculate<span className="animatedbtn"> >>></span>*/}
                             {/*</button>*/}
-                            <MainBtn>Calculate</MainBtn>
+                            <Link to="/quotationGeneration">
+                                <MainBtn>Calculate</MainBtn>
+                            </Link>
                         </div>
                     </div>
                     {/*<ContactUs/>*/}
