@@ -76,9 +76,9 @@ export default function Loginform(props) {
             <div>
                 <Card className="loginform">
                     <form className="flex flex-col gap-4">
-                        <div>
+                        <div >
                             <div className="mb-2 block">
-                                <Label htmlFor="email1" value="Email" style={{fontSize: "20px"}}/>
+                                <Label htmlFor="email1" value="Email" style={{color:"#333333", fontSize: "18px"}}/>
                             </div>
                             <TextInput id="username"
                                        placeholder="user@gmail.com"
@@ -90,7 +90,7 @@ export default function Loginform(props) {
                         </div>
                         <div>
                             <div className="mb-2 block">
-                                <Label htmlFor="password1" value="Password" style={{fontSize: "20px"}}/>
+                                <Label htmlFor="password1" value="Password" style={{color:"#333333",fontSize: "18px"}}/>
                             </div>
                             <TextInput id="password"
                                        type="password"
@@ -99,7 +99,7 @@ export default function Loginform(props) {
                                        onChange={(e) => setPassword(e.target.value)}
                                        required/>
                         </div>
-                        <Button gradientDuoTone="purpleToBlue" onClick={saveUser}>Login</Button>
+                        <Button className="loginbtn" onClick={saveUser}>Login</Button>
                     </form>
                     <div className="signup-link">
                         Don't have an account yet?
@@ -107,18 +107,18 @@ export default function Loginform(props) {
                     </div>
                 </Card>
             </div>
-            <div>
-                <div className="welcome-message">
-                    WELCOME TO
-                    <motion.img
-                        src={Img}
-                        className="homelogo"
-                        alt="logo"
-                        animate={{y: [0, -20, 20, 0], rotate: [0, 10, -10, 0]}}
-                        transition={{duration: 2, repeat: Infinity, ease: "easeInOut"}}
-                    />
-                </div>
-            </div>
+            {/*<div>*/}
+            {/*    <div className="welcome-message">*/}
+            {/*        WELCOME TO*/}
+            {/*        <motion.img*/}
+            {/*            src={Img}*/}
+            {/*            className="homelogo"*/}
+            {/*            alt="logo"*/}
+            {/*            animate={{y: [0, -20, 20, 0], alignTracks: [0, 10, -10, 0]}}*/}
+            {/*            transition={{duration: 2, repeat: Infinity, ease: "easeInOut"}}*/}
+            {/*        />*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     );
 }
