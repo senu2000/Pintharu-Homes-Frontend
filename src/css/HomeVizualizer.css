@@ -1,0 +1,14 @@
+.f-body{
+    /*background-color: transparent;*/
+    /*backdrop-filter: blur(20px);*/
+    /*background-image: linear-gradient(*/
+    /*    10deg,*/
+    /*    rgba(255, 255, 255, 0.3),*/
+    /*    rgba(0, 0, 0, 0.2)*/
+    /*);*/
+    /*background-size: 10px ;*/
+
+    background-image: url("../../public/Images/pBack.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -27,6 +27,7 @@ import { Toaster } from 'sonner';
 import AdminProjects from './pages/AdminProjects.jsx';
 import Testing from "./components/Testing.jsx";
 import ContactUs from "./components/ContactUs.jsx";
+import HomeVisualizer from "./pages/HomeVisualizer.jsx";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
@@ -94,9 +95,14 @@ function App() {
                         path="/payment"
                         element={isAuthenticated ? <Payment /> : <Navigate to="/login" />}
                     />
+                    <Route
+                        path="/homeVisualizer"
+                        element={isAuthenticated ? <HomeVisualizer /> : <Navigate to="/login" />}
+                    />
                     <Route path="/login" element={<Login onLoginSuccess={updateAuthentication} />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/test" element={<Testing />} />
+                    {/*<Route path="/homeVisualizer" element={<HomeVisualizer />} />*/}
                 </Routes>
             </Router>
             <Toaster richColors />
