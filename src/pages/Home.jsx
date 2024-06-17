@@ -11,11 +11,34 @@ import MainBtn from "../components/MainBtn.jsx";
 import BrandsLogo from "../../public/Images/brandsLogos.png";
 import ContactUs from "../components/ContactUs.jsx";
 import Img1 from "../../public/Images/Logo.png";
+import {useAnimation, useInView, motion} from "framer-motion";
 
 
 
 
 export default function Home() {
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    const isInView1 = useInView(ref1);
+    const isInView2 = useInView(ref2);
+    const mainControls = useAnimation();
+    const slideControls = useAnimation();
+
+    useEffect(() => {
+        if (isInView1) {
+            mainControls.start("visible");
+        } else {
+            mainControls.start("hidden");
+        }
+    }, [isInView1, mainControls]);
+
+    useEffect(() => {
+        if (isInView2) {
+            slideControls.start("visible");
+        } else {
+            slideControls.start("hidden");
+        }
+    }, [isInView2, slideControls]);
     return (
         <>
             <div className="homeback">
@@ -59,7 +82,9 @@ export default function Home() {
                         <td className="td"></td>
                         <td className="td"></td>
                         <td className="td">
-                            <div className="projectssection">
+                            <div
+                                className="projectssection"
+                            >
                                 <div className="projectsectiontitle1">DISCOVER</div>
                                 <div className="projectsectiontitle2"> Painted Masterpieces</div>
                                 <p className="text-black">Explore our painted wonders in this showcase of vibrant

@@ -4,7 +4,7 @@ import MyNavBar from "../components/NavBar.jsx";
 import MyFooter from "../components/Footer.jsx";
 import Img1 from "../../public/Images/Logo.png";
 import {motion, useInView, useAnimation} from "framer-motion";
-import LoginGif from "../../public/Images/login.gif";
+import LoginGif from "../../public/Images/login.png";
 
 function Login(props) {
     const ref1 = useRef(null);
@@ -37,39 +37,42 @@ function Login(props) {
                 <div className="editnavbar">
                     <MyNavBar/>
                 </div>
-                <div>
-                    <motion.div
-                        className="loginheading"
-                        variants={{
-                            hidden: {opacity: 0, y: 20},
-                            visible: {opacity: 1, y: 0},
-                        }}
-                        initial="hidden"
-                        animate={mainControls}
-                        transition={{duration: 0.5, delay: 0.5}}
-                        ref={ref1}
-                    >
-                        Welcome to
-                    </motion.div>
-                    <motion.div
-                        variants={{
-                            hidden: {opacity: 0, y: -20},
-                            visible: {opacity: 1, y: 0},
-                        }}
-                        initial="hidden"
-                        animate={mainControls}
-                        transition={{duration: 0.5, delay: 0.5}}
-                        ref={ref1}
-                    >
-                        <img src={Img1} className="loginheadinglogo"/>
-                    </motion.div>
+
+                <div className="logingifandform">
+                    {/*<div className="editlogingif"><img src={LoginGif} alt="login animation" className="logingif"/></div>*/}
+
+                    <div className="welcomeandlogosection">
+                        <motion.div
+                            className="loginheading"
+                            variants={{
+                                hidden: {opacity: 0, y: 20},
+                                visible: {opacity: 1, y: 0},
+                            }}
+                            initial="hidden"
+                            animate={mainControls}
+                            transition={{duration: 0.5, delay: 0.5}}
+                            ref={ref1}
+                        >
+                            Welcome to
+                        </motion.div>
+                        <motion.div
+                            variants={{
+                                hidden: {opacity: 0, y: -20},
+                                visible: {opacity: 1, y: 0},
+                            }}
+                            initial="hidden"
+                            animate={mainControls}
+                            transition={{duration: 0.5, delay: 0.5}}
+                            ref={ref1}
+                        >
+                            <img src={Img1} className="loginheadinglogo"/>
+                        </motion.div>
+                    </div>
+                    <div className="editloginformdiv"><Loginform onLoginSuccess={props.onLoginSuccess}/></div>
                 </div>
             </div>
-            <div className="shopline"></div>
-            <div className="logingifandform">
-                <div className="editlogingif"><img src={LoginGif} alt="login animation" className="logingif"/></div>
-                <div className="editloginformdiv"><Loginform onLoginSuccess={props.onLoginSuccess}/></div>
-            </div>
+            {/*<div className="shopline"></div>*/}
+
             <div><MyFooter/></div>
         </div>
     );

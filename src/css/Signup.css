@@ -9,7 +9,8 @@
     width: fit-content;
     margin: 20px;
     min-width: 350px;
-    background-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(4px);
     border-radius: 10px;
   }
 
@@ -21,8 +22,13 @@
     margin-right: 100px;
     padding-bottom: 100px;
   }
-
-
+.signinupheading{
+  font-weight: bold;
+  font-size: 40px;
+  color: #fc6c41;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
 
 
 .loginbtn{
@@ -48,12 +54,14 @@
 }
 
 .linksignup {
-  color: #fc6c41;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
   text-decoration: none;
 }
 
 .linksignup:hover {
   color: #333333;
+  text-shadow: none;
 }
 
 
@@ -99,7 +107,6 @@
   justify-content: center; /* Centers the divs horizontally within the container */
   align-items: center;    /* Centers the content vertically within each div */
   gap: 20px;
-  margin-bottom: 40px;
 }
 
 .editlogingif,
@@ -113,24 +120,22 @@
   .logingifandform  {
     display: flex;
     flex-direction: column;
-    background-color: #ececec;
     align-items: center;
     scale: 80%;
   }
-  .editlogingif{
-    margin-bottom: -80px;
-    margin-top: -80px;
-  }
+  /*.editlogingif{*/
+  /*  margin-bottom: -80px;*/
+  /*  margin-top: -80px;*/
+  /*}*/
 }
 @media (min-width: 400.01px) and (max-width: 770px) {
   .logingifandform  {
     display: flex;
     flex-direction: column;
-    background-color: #ececec;
     align-items: center;
   }
-  .editlogingif{
-    margin-bottom: -80px;
-    margin-top: -80px;
-  }
+  /*.editlogingif{*/
+  /*  margin-bottom: -80px;*/
+  /*  margin-top: -80px;*/
+  /*}*/
 }
