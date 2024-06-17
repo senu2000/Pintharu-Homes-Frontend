@@ -14,6 +14,7 @@ import {Button, Modal} from "flowbite-react";
 import {useState} from "react"
 import CalendlyWidget from "../components/CalendlyWidget.jsx";
 import axios from "axios";
+import MyFooter from "../components/Footer.jsx";
 
 function UserProfile(props) {
 
@@ -177,6 +178,7 @@ function UserProfile(props) {
 
                     </div>
                 </div>
+                <MyFooter/>
             </div>
         </div>
     );
