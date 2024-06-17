@@ -5,6 +5,7 @@ import Img from "../../public/Images/Logo.png";
 import {Link, useNavigate} from "react-router-dom";
 import {displayErrorToast, displaySuccessToast} from "./ToastProvider.jsx";
 import axios from "axios";
+import {bold} from "next/dist/lib/picocolors.js";
 
 
 export default function SignupForm() {
@@ -62,6 +63,7 @@ export default function SignupForm() {
         <form>
             <div className="signup-container">
                         <Card className="signupform">
+                            <h1 className="signinupheading">Register</h1>
                             <form className="flex flex-col gap-4">
                                 <div>
                                     <div className="mb-2 block">

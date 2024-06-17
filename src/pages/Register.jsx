@@ -3,7 +3,7 @@ import SignupForm from '../components/Signup';
 import MyNavBar from "../components/NavBar.jsx";
 import {motion, useInView, useAnimation} from "framer-motion";
 import Img1 from "../../public/Images/Logo.png";
-import RegisterGif from "../../public/Images/register.gif";
+import RegisterGif from "../../public/Images/register.png";
 import MyFooter from "../components/Footer.jsx";
 
 function Register(props) {
@@ -40,39 +40,41 @@ function Register(props) {
                     <div className="editnavbar">
                         <MyNavBar/>
                     </div>
-                    <div>
-                        <motion.div
-                            className="loginheading"
-                            variants={{
-                                hidden: {opacity: 0, y: 20},
-                                visible: {opacity: 1, y: 0},
-                            }}
-                            initial="hidden"
-                            animate={mainControls}
-                            transition={{duration: 0.5, delay: 0.5}}
-                            ref={ref1}
-                        >
-                            Welcome to
-                        </motion.div>
-                        <motion.div
-                            variants={{
-                                hidden: {opacity: 0, y: -20},
-                                visible: {opacity: 1, y: 0},
-                            }}
-                            initial="hidden"
-                            animate={mainControls}
-                            transition={{duration: 0.5, delay: 0.5}}
-                            ref={ref1}
-                        >
-                            <img src={Img1} className="loginheadinglogo"/>
-                        </motion.div>
+                    {/*<div className="shopline"></div>*/}
+                    <div className="logingifandform">
+                        {/*<div className="editregistergif"><img src={RegisterGif} alt="register animation" className="registergif"/></div>*/}
+                        <div className="welcomeandlogosection">
+                            <motion.div
+                                className="loginheading"
+                                variants={{
+                                    hidden: {opacity: 0, y: 20},
+                                    visible: {opacity: 1, y: 0},
+                                }}
+                                initial="hidden"
+                                animate={mainControls}
+                                transition={{duration: 0.5, delay: 0.5}}
+                                ref={ref1}
+                            >
+                                Welcome to
+                            </motion.div>
+                            <motion.div
+                                variants={{
+                                    hidden: {opacity: 0, y: -20},
+                                    visible: {opacity: 1, y: 0},
+                                }}
+                                initial="hidden"
+                                animate={mainControls}
+                                transition={{duration: 0.5, delay: 0.5}}
+                                ref={ref1}
+                            >
+                                <img src={Img1} className="loginheadinglogo"/>
+                            </motion.div>
+                        </div>
+
+                        <div className="editloginformdiv"><SignupForm/></div>
                     </div>
                 </div>
-                <div className="shopline"></div>
-                <div className="logingifandform">
-                    <div className="editregistergif"><img src={RegisterGif} alt="register animation" className="registergif"/></div>
-                    <div className="editloginformdiv"><SignupForm/></div>
-                </div>
+
                 <div><MyFooter/></div>
             </div>
         </>

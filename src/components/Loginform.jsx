@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {motion} from "framer-motion";
 import {displayErrorToast, displaySuccessToast} from "./ToastProvider.jsx";
 import axios from "axios";
+import {black, white} from "next/dist/lib/picocolors.js";
 
 
 export default function Loginform(props) {
@@ -75,6 +76,7 @@ export default function Loginform(props) {
         <div className="login-container">
             <div>
                 <Card className="loginform">
+                    <h1 className="signinupheading">Login</h1>
                     <form className="flex flex-col gap-4">
                         <div >
                             <div className="mb-2 block">
