@@ -61,23 +61,14 @@ export default function SignupForm() {
     return (
         <form>
             <div className="signup-container">
-                <table>
-                    <td className="signupMessageTd">
-                        <div className="signupMessage">
-                            WELCOME TO
-                            <img src={Img} className="homelogo" alt="logo"/>
-                        </div>
-                    </td>
-                    <td className="signupformTd">
                         <Card className="signupform">
-                            <h1 className="signupName">SIGN UP</h1>
                             <form className="flex flex-col gap-4">
                                 <div>
                                     <div className="mb-2 block">
                                         <Label
                                             htmlFor="email1"
                                             value="Email"
-                                            style={{fontSize: "20px"}}
+                                            style={{fontSize: "18px"}}
                                         />
                                     </div>
                                     <TextInput
@@ -95,7 +86,7 @@ export default function SignupForm() {
                                         <Label
                                             htmlFor="address"
                                             value="Address"
-                                            style={{fontSize: "20px"}}
+                                            style={{fontSize: "18px"}}
                                         />
                                     </div>
                                     <TextInput
@@ -113,7 +104,7 @@ export default function SignupForm() {
                                         <Label
                                             htmlFor="Tel"
                                             value="Phone Number"
-                                            style={{fontSize: "20px"}}
+                                            style={{fontSize: "18px"}}
                                         />
                                     </div>
                                     <TextInput
@@ -132,7 +123,7 @@ export default function SignupForm() {
                                         <Label
                                             htmlFor="password1"
                                             value="Password"
-                                            style={{fontSize: "20px"}}
+                                            style={{fontSize: "18px"}}
                                         />
                                     </div>
                                     <TextInput
@@ -149,7 +140,7 @@ export default function SignupForm() {
                                         <Label
                                             htmlFor="RepeatPassword"
                                             value="Repeat Password"
-                                            style={{fontSize: "20px"}}
+                                            style={{fontSize: "18px"}}
                                         />
                                     </div>
                                     <TextInput
@@ -160,7 +151,7 @@ export default function SignupForm() {
                                         required
                                     />
                                 </div>
-                                <Button gradientDuoTone="purpleToBlue" onClick={saveUser}>
+                                <Button className="loginbtn" onClick={saveUser}>
                                     Sign Up
                                 </Button>
                             </form>
@@ -169,8 +160,6 @@ export default function SignupForm() {
                                 <Link to="/login"><p className="linksignup">Sign In</p></Link>
                             </div>
                         </Card>
-                    </td>
-                </table>
             </div>
         </form>
     );
