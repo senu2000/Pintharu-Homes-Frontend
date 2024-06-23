@@ -28,7 +28,7 @@ function UserProfile(props) {
 
     const fetchUserDetails = async () => {
         try {
-            const tokenResponse = await axios.get(`http://localhost:8080/api/user/token/${localStorage.getItem('token')}`, );
+            const tokenResponse = await axios.get(`http://localhost:8080/api/user/token/${localStorage.getItem('token')}`,);
             console.log(tokenResponse);
             const userId = tokenResponse.data.userId;
             localStorage.setItem("userId", userId)
@@ -65,7 +65,6 @@ function UserProfile(props) {
     function goback() {
         navigate("/");
     }
-
 
     return (
         <div className="page-container">
@@ -150,12 +149,16 @@ function UserProfile(props) {
                             <UserProfileCard message="Chat with Pintharu Homes" image={Img2}/>
                         </div>
                         <div>
-                            <UserProfileCard message="Try AI Paint Assistant" image={Img3}/>
+                            <Link to="/homeVisualizer">
+                                <UserProfileCard message="Try AI Paint Assistant" image={Img3}/>
+                            </Link>
                         </div>
                         <div>
+                            <Link to="/cart">
                             <UserProfileCard
                                 message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart"
                                 image={Img4}/>
+                            </Link>
                         </div>
                         <div>
                             <UserProfileCard message="Check My Orders" image={Img5}/>

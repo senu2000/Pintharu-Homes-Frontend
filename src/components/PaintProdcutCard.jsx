@@ -71,10 +71,25 @@ export default function PaintProdcutCard(props) {
         }
     };
 
+    const showAddtoCart = () => {
+        if (quantity === 0) {
+            return (
+                <button className="w-44 productcard-button p-2 rounded-[10px]" disabled={true}>
+                    Add To Cart &nbsp; <FontAwesomeIcon icon={faCartPlus}/>
+                </button>
+            );
+        } else {
+            return (
+                <button className="w-44 productcard-button p-2 rounded-[10px]" onClick={addToCart}>
+                    Add To Cart &nbsp; <FontAwesomeIcon icon={faCartPlus}/>
+                </button>
+            );
+        }
+    }
+
     return (
         <Card
             className="paintcardimg productcard"
-            imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
             imgSrc={img}
         >
             <h5 className="sm:text-lg font-semibold tracking-tight text-gray-900 dark:text-white productcardtext">
@@ -147,9 +162,10 @@ export default function PaintProdcutCard(props) {
                         </div>
                     </Modal.Body>
                     <Modal.Footer className="justify-center">
-                        <button className="w-44 productcard-button p-2 rounded-[10px]" onClick={addToCart}>
-                            Add To Cart &nbsp; <FontAwesomeIcon icon={faCartPlus}/>
-                        </button>
+                        {/*<button className="w-44 productcard-button p-2 rounded-[10px]" onClick={addToCart}>*/}
+                        {/*    Add To Cart &nbsp; <FontAwesomeIcon icon={faCartPlus}/>*/}
+                        {/*</button>*/}
+                        {showAddtoCart()}
                     </Modal.Footer>
                 </Modal>
             </div>

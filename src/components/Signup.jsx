@@ -19,11 +19,31 @@ export default function SignupForm() {
     const [role, setRole] = useState('USER');
     const [confirmpassword, setConfirmpassword] = useState('');
 
+    const validateEmail = (email) => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    };
+
+    const validatePhoneNumber = (phone) => {
+        const phonePattern = /^[0-9]{10}$/;
+        return phonePattern.test(phone);
+    };
+
     function saveUser(e) {
         e.preventDefault();
 
         const employee = {username, password, phone_number, address, role};
         console.log(employee);
+
+        if (!validateEmail(username)) {
+            displayErrorToast("Invalid email");
+            return;
+        }
+
+        if (!validatePhoneNumber(phone_number)) {
+            displayErrorToast("Invalid phone number");
+            return;
+        }
 
         if (username === '' || password === '' || phone_number === '' || address === '' || confirmpassword === '') {
             displayErrorToast("All field are required");

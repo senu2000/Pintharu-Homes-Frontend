@@ -1,12 +1,26 @@
-.noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.f-bg{
+    background-image: url('../public/Images/Background.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center,top;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-.animatedbtn2 {
+
+.main-content {
+    flex: 1;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+.c-table{
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px) !important
+}
+
+.animatedbtn3 {
     font-size: 16px;
     font-weight: bold;
     background: transparent;
@@ -22,7 +36,7 @@
     /*margin-top: 20px;*/
     /*margin-bottom: 35px;*/
 }
-.animatedbtn2:hover {
+.animatedbtn3:hover {
     width: 170px;
     background-image: linear-gradient(to right, #fc6c41, #faad73);
     /*border: 2px  #777;*/
@@ -30,21 +44,5 @@
     color: #333333;
     border: none;
     padding-left: 0px;
-    margin-top: 20px;
-    margin-bottom: 35px;
 }
 
-.animatedbtn2:focus {
-    border: none;
-}
-
-.animatedbtn2 span {
-    color: transparent;
-    transition: 500ms;
-    margin-left: -20px;
-}
-
-.animatedbtn2:hover span {
-    color: #333333;
-    margin-left: 0;
-}

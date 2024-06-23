@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../css/SearchBar.css";
 import AnimatedTextSearch from "../components/TypingAnimation.jsx";
+import { useNavigate } from "react-router-dom";
 
-
-function SearchBar({onSearch}) {
+function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
@@ -12,16 +13,14 @@ function SearchBar({onSearch}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSearch(searchTerm);
+        navigate(`/searchResults?search=${searchTerm}`);
     };
-
 
     return (
         <div className="editSearchBar">
-            <div className="searchabovetext"><AnimatedTextSearch/></div>
+            <div className="searchabovetext"><AnimatedTextSearch /></div>
             <div className="searchbarline"></div>
-            <form onSubmit={handleSubmit} className="searchbar-main">
-
+            <form className="searchbar-main" onSubmit={handleSubmit}>
                 <div className="searchbar-container">
                     <input
                         type="text"
@@ -38,3 +37,4 @@ function SearchBar({onSearch}) {
 }
 
 export default SearchBar;
+
