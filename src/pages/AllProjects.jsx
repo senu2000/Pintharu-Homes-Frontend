@@ -37,8 +37,9 @@ function AllProjects(props) {
                           </div>
                       ))}
                   </div>
-                    <MyFooter/>
+                    {/*<MyFooter/>*/}
                 </div>
+                <MyFooter className="footer-p"/>
             </div>
         </>
     );

@@ -5,6 +5,7 @@ import DeleteBtnModel from "../components/DeleteBtnModel.jsx";
 import "../css/Cart.css";
 import MyNavBar from "../components/NavBar.jsx";
 import MyFooter from "../components/Footer.jsx";
+import {Link} from "react-router-dom";
 
 function Cart(props) {
     const [searchTerm, setSearchTerm] = useState("");
@@ -51,7 +52,10 @@ function Cart(props) {
                             />
                         </div>
                         <div>
-                            <button className="noselect2 animatedbtn3 text-white">Checkout<span> >>> </span></button>
+                            <Link to="/checkout">
+                                <button className="noselect2 animatedbtn3 text-white">Checkout<span> >>> </span></button>
+                            </Link>
+
                         </div>
                     </div>
                     <div className="justify-center content-center items-center p-8">
