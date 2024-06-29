@@ -1,0 +1,9 @@
+.fo-bg{
+    background-image: url('../public/Images/Background.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center,top;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

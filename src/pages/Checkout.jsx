@@ -4,16 +4,21 @@ import MyFooter from "../components/Footer.jsx";
 import {Label, Table, TextInput} from "flowbite-react";
 import axios from "axios";
 import MyNavBar from "../components/NavBar.jsx";
+import {Link, useNavigate} from "react-router-dom";
+import {displayErrorToast, displaySuccessToast} from "../components/ToastProvider.jsx";
 
 function Checkout(props) {
     const [username, setUsername] = useState('');
     const [phone_number, setPhoneNo] = useState('');
     const [address, setAddress] = useState('');
+    const [fullName, setFullName] = useState('');
 
     const [paint, setPaints] = useState([]);
     // const [orderdQuantity, setOrderedQuantity] = useState('1');
     const [quantities, setQuantities] = useState({});
     const [totalCost, setTotalCost] = useState(0);
+
+    const navigate =useNavigate();
 
     useEffect(() => {
         fetchUserDetails();
@@ -21,7 +26,8 @@ function Checkout(props) {
     }, []);
 
     useEffect(() => {
-        calculateTotalCost()
+        calculateTotalCost();
+        console.log(quantities);
     }, [quantities, paint]);
 
     const fetchUserDetails = async () => {
@@ -72,6 +78,37 @@ function Checkout(props) {
         setTotalCost(total);
     };
 
+    const placeOrder = async () => {
+        if (phone_number === '' || address === '' || fullName === '') {
+            displayErrorToast("Fill all required fields");
+            return;
+        }
+
+        const orderPayload = {
+            fullName: fullName,
+            fullAddress: address,
+            contactNumber: phone_number,
+            orderPaintQuantityList: paint.map(item => ({
+                paintId: item.id,
+                quantity: quantities[item.id]
+            }))
+        };
+
+        try {
+            const response = await axios.post('http://localhost:8080/api/order/placeOrder/true', orderPayload, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log('Order placed successfully:', response.data);
+            navigate("/myOrders");
+            displaySuccessToast("Your order successfully placed.");
+        } catch (error) {
+            console.error('Error placing order:', error);
+        }
+    };
+
     return (
         <div className="checkout-bg">
             <MyNavBar/>
@@ -92,6 +129,19 @@ function Checkout(props) {
                                     type="text"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
+                                    required/>
+                            </div>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="fullName" value="Buyer Name" className="font-light text-gray-300"/>
+                                </div>
+                                <TextInput
+                                    id="fullName"
+                                    placeholder="Enter the name of the person making the order"
+                                    name="fullName"
+                                    type="text"
+                                    value={fullName}
+                                    onChange={(e) => setFullName(e.target.value)}
                                     required/>
                             </div>
                             <div>
@@ -141,23 +191,9 @@ function Checkout(props) {
                                     <Table.Cell>{item.brand}</Table.Cell>
                                     <Table.Cell>{item.volume}</Table.Cell>
                                     <Table.Cell>
-                                        {/*<select id="orderdQuantity"*/}
-                                        {/*        className="w-full rounded"*/}
-                                        {/*        name="orderdQuantity"*/}
-                                        {/*        value={orderdQuantity}*/}
-                                        {/*        onChange={(e) => setOrderedQuantity(e.target.value)}*/}
-                                        {/*        required>*/}
-                                        {/*    <option value="1">1</option>*/}
-                                        {/*    <option value="2">2</option>*/}
-                                        {/*    <option value="3">3</option>*/}
-                                        {/*    <option value="4">4</option>*/}
-                                        {/*    <option value="5">5</option>*/}
-                                        {/*</select>*/}
-
-
                                         <select
                                             id={`quantity-${item.id}`}
-                                            className="w-full rounded h-9 self-center"
+                                            className="w-[65px] rounded h-9 self-center"
                                             name="quantity"
                                             value={quantities[item.id]}
                                             onChange={(e) => handleQuantityChange(item.id, Number(e.target.value))}
@@ -180,12 +216,15 @@ function Checkout(props) {
                     </Table>
                 </div>
             </div>
-            <div className="checkout-content-l justify-center text-center mt-4 mb-8 lg:ml-44 lg:mr-44 rounded-[15px] m-5 p-4">
+            <div className="checkout-content-l justify-center text-center mt-4 lg:ml-44 lg:mr-44 rounded-[15px] m-5 p-4">
                 <div className="inline-flex items-baseline text-gray-300 ">
                     <p className="self-center font-light">Total Cost :&nbsp;&nbsp;&nbsp; </p>
                     <span className="text-3xl self-center font-bold"> Rs. {totalCost.toFixed(2)}/= </span>
                 </div>
                 <p className="text-red-200 text-sm font-light">( Note : Check again your delivery details and cart items before placing the order. )</p>
+            </div>
+            <div className="justify-center text-center -mt-1 mb-8 lg:ml-44 lg:mr-44 rounded-[15px] m-5 p-4">
+                    <button className="noselect2 animatedbtn3 text-white" onClick={placeOrder}>Place Order<span> >>> </span></button>
             </div>
             <MyFooter className="footer-checkout"/>
         </div>

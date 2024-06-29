@@ -59,7 +59,12 @@ function UserProfile(props) {
     };
 
     if (!userData) {
-        return <div>Loading...</div>;
+        return(
+            <div className="flex justify-center content-center items-center h-screen w-screen">
+                {/*Loading...*/}
+                <img src="../../public/Images/loading5.gif" alt="" className="w-60"/>
+            </div>
+        );
     }
 
     function goback() {
@@ -79,7 +84,8 @@ function UserProfile(props) {
                                         <div className="w-full lg:w-3/12 px-4 order-2 flex justify-center mt-4 lg:mt-8">
                                             <div className="profile-image">
                                                 <img
-                                                    src="https://media.giphy.com/media/d83JuRsfcBMs1vYDvk/giphy.gif?cid=790b7611yllh2kmufhss66dj9uyu6ryapk1m39gs6ddwvgr3&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                                                    src="../../public/Images/paintingGIF.webp"
+                                                    // src="https://media.giphy.com/media/d83JuRsfcBMs1vYDvk/giphy.gif?cid=790b7611yllh2kmufhss66dj9uyu6ryapk1m39gs6ddwvgr3&ep=v1_gifs_search&rid=giphy.gif&ct=g"
                                                     alt=""
                                                     className="shadow-xl rounded-full h-1/5 align-middle border-none absolute -m-20 -ml-20 lg:-ml-16 max-w-150-px"/>
                                             </div>
@@ -155,13 +161,15 @@ function UserProfile(props) {
                         </div>
                         <div>
                             <Link to="/cart">
-                            <UserProfileCard
-                                message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart"
-                                image={Img4}/>
+                                <UserProfileCard
+                                    message="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View  My &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart"
+                                    image={Img4}/>
                             </Link>
                         </div>
                         <div>
-                            <UserProfileCard message="Check My Orders" image={Img5}/>
+                            <Link to="/myOrders">
+                                <UserProfileCard message="Check My Orders" image={Img5}/>
+                            </Link>
                         </div>
 
                         <Modal show={openModal} onClose={() => setOpenModal(false)}>

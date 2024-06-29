@@ -29,6 +29,8 @@ import Testing from "./components/Testing.jsx";
 import ContactUs from "./components/ContactUs.jsx";
 import HomeVisualizer from "./pages/HomeVisualizer.jsx";
 import Checkout from "./pages/Checkout.jsx";
+import Orders from "./pages/Orders.jsx";
+import Test2 from "./components/Test2.jsx";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
@@ -104,9 +106,13 @@ function App() {
                         path="/checkout"
                         element={isAuthenticated ? <Checkout /> : <Navigate to="/login" />}
                     />
+                    <Route
+                        path="/myOrders"
+                        element={isAuthenticated ? <Orders /> : <Navigate to="/login" />}
+                    />
                     <Route path="/login" element={<Login onLoginSuccess={updateAuthentication} />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/test" element={<Testing />} />
+                    <Route path="/test" element={<Test2 />} />
                     {/*<Route path="/homeVisualizer" element={<HomeVisualizer />} />*/}
                 </Routes>
             </Router>
