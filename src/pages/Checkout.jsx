@@ -78,6 +78,7 @@ function Checkout(props) {
         setTotalCost(total);
     };
 
+
     const placeOrder = async () => {
         if (phone_number === '' || address === '' || fullName === '') {
             displayErrorToast("Fill all required fields");
@@ -95,19 +96,66 @@ function Checkout(props) {
         };
 
         try {
-            const response = await axios.post('http://localhost:8080/api/order/placeOrder/true', orderPayload, {
+            const transactionResponse = await axios.get(`http://localhost:8080/api/order/createTransaction/${totalCost}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json'
                 }
             });
-            console.log('Order placed successfully:', response.data);
-            navigate("/myOrders");
-            displaySuccessToast("Your order successfully placed.");
+
+            const { orderId, currency, amount, key } = transactionResponse.data;
+
+            const options = {
+                key: key,
+                amount: amount,
+                currency: currency,
+                name: 'Pintharu Homes',
+                description: 'Purchase Description',
+                image: '../public/Images/Logo1.png',
+                order_id: orderId,
+                handler: async (response) => {
+                    try {
+                        const paymentPayload = {
+                            ...orderPayload,
+                            razorpayPaymentId: response.razorpay_payment_id,
+                            razorpayOrderId: response.razorpay_order_id,
+                            razorpaySignature: response.razorpay_signature
+                        };
+
+                        const placeOrderResponse = await axios.post('http://localhost:8080/api/order/placeOrder/true', paymentPayload, {
+                            headers: {
+                                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        navigate("/myOrders");
+                        displaySuccessToast("Your order placed successfully. It will delivered to you within 4-5 business days");
+                    } catch (error) {
+                        console.error('Error placing order:', error);
+                        displayErrorToast("Error placing order.");
+                    }
+                },
+                prefill: {
+                    name: fullName,
+                    email: username,
+                    contact: phone_number
+                },
+                theme: {
+                    color: '#fc6c41'
+                }
+            };
+
+            const rzp = new window.Razorpay(options);
+            rzp.open();
         } catch (error) {
-            console.error('Error placing order:', error);
+            console.error('Error initiating transaction:', error);
         }
     };
+
+
+
+
 
     return (
         <div className="checkout-bg">

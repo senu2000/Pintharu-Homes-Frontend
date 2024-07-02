@@ -18,7 +18,7 @@ function Orders(props) {
                         'Content-Type': 'application/json'
                     }
                 });
-                console.log('Order items:', response.data);
+                // console.log('Order items:', response.data);
                 setOrderItems(response.data);
             } catch (error) {
                 console.error('Error fetching cart items:', error);

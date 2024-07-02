@@ -114,7 +114,7 @@ export default function PaintProdcutCard(props) {
                         </div>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="grid grid-cols-2">
+                        <div className="md:grid md:grid-cols-2 flex-col">
                             <div className="flex justify-center">
                                 {/*space-y-6*/}
                                 <div className="">
@@ -136,9 +136,10 @@ export default function PaintProdcutCard(props) {
                                             <td>Available in stoke </td>
                                             <td>: <span className="font-bold">{props.item.quantity}</span></td>
                                         </tr>
-                                        <tr>
-                                            <td>Category </td>
-                                            <td>: <span className="font-bold">{props.item.category}</span></td>
+                                        <tr className="">
+                                            <td className="self-center">Category </td>
+                                            <td className="inline-flex items-baseline"><span className="self-center">:</span>
+                                                <span className="font-bold ml-1.5">{props.item.category}</span></td>
                                         </tr>
                                         <tr>
                                             <td>Volume </td>
@@ -150,14 +151,7 @@ export default function PaintProdcutCard(props) {
                                         </tr>
                                         </tbody>
                                     </table>
-                                    {/*Brand : <span className="font-bold">{props.item.brand}</span> <br/>*/}
-                                    {/*Available stoke : <span className="font-bold">{props.item.quantity}</span> <br/>*/}
-                                    {/*Category : <span className="font-bold">{props.item.category}</span> <br/>*/}
-                                    {/*Volume: <span className="font-bold">*/}
-                                    {/*{props.item.volume ? `${props.item.volume} L` : '-'}</span> <br/>*/}
-                                    {/*Price : Rs. <span className="font-bold">{props.item.price}.00</span>*/}
                                 </div>
-                                {/*{props.item.description}*/}
                             </div>
                         </div>
                     </Modal.Body>

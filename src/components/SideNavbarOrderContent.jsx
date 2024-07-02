@@ -3,6 +3,7 @@ import axios from "axios";
 import MyNavBar from "./NavBar.jsx";
 import {Table} from "flowbite-react";
 import MyFooter from "./Footer.jsx";
+import {displaySuccessToast} from "./ToastProvider.jsx";
 
 function SideNavbarOrderContent(props) {
 
@@ -39,6 +40,7 @@ function SideNavbarOrderContent(props) {
     const changeStatus = async (orderId) => {
         try {
             const response = await axios.get(`http://localhost:8080/api/order/markOrderAsDispatched/${orderId}`);
+            displaySuccessToast("Order status changed successfully.");
         } catch (error) {
             console.error('Error fetching cart items:', error);
         }
@@ -46,8 +48,8 @@ function SideNavbarOrderContent(props) {
 
     return (
         <div className="bg-orange-50 h-full rounded-l-[150px]">
-            <div className="main-content">
-                <div className="overflow-x-auto m-10 justify-center content-center items-center c-table rounded-[20px]">
+            <div className="main-content -mt-12">
+                <div className="overflow-x-auto m-10 pt-9 justify-center content-center items-center c-table rounded-[20px]">
                     <div className="flex justify-end mt-7 ml-8 mr-1 mb-5">
                         <div>
                             <input

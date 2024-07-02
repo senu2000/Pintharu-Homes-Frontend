@@ -22,6 +22,7 @@
     "flowbite-react": "^0.9.0",
     "framer-motion": "^11.2.3",
     "next": "^14.2.3",
+    "razorpay": "^2.9.4",
     "react": "^18.2.0",
     "react-chat-engine-pretty": "^0.1.8",
     "react-color-palette": "^7.1.1",

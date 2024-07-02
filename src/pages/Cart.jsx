@@ -52,10 +52,22 @@ function Cart(props) {
                             />
                         </div>
                         <div>
-                            <Link to="/checkout">
-                                <button className="noselect2 animatedbtn3 text-white">Checkout<span> >>> </span></button>
-                            </Link>
-
+                            {
+                                cartItems.length === 0 ? (
+                                    <Link to="">
+                                        <button className="noselect2 animatedbtn3 text-white"
+                                                disabled={true}>Checkout<span> >>> </span></button>
+                                    </Link>
+                                ) : (
+                                    <Link to="/checkout">
+                                        <button className="noselect2 animatedbtn3 text-white">
+                                            Checkout<span> >>> </span></button>
+                                    </Link>
+                                )
+                            }
+                            {/*<Link to="/checkout">*/}
+                            {/*    <button className="noselect2 animatedbtn3 text-white">Checkout<span> >>> </span></button>*/}
+                            {/*</Link>*/}
                         </div>
                     </div>
                     <div className="justify-center content-center items-center p-8">
