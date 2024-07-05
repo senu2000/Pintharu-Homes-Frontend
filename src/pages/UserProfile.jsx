@@ -20,7 +20,17 @@ function UserProfile(props) {
 
     const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
+    const [openModal2, setOpenModal2] = useState(false);
     const [userData, setUserData] = useState(null);
+
+    // const history = useHistory();
+    const [username, setUsername] = useState();
+
+    const handleLogin = () => {
+        localStorage.setItem("chat-username", username);
+        navigate("/chat");
+        // history.push("/chat");
+    };
 
     useEffect(() => {
         fetchUserDetails();
@@ -151,7 +161,7 @@ function UserProfile(props) {
                         <div onClick={() => setOpenModal(true)}>
                             <UserProfileCard message="Make an appoinment" image={Img1}/>
                         </div>
-                        <div>
+                        <div onClick={() => setOpenModal2(true)}>
                             <UserProfileCard message="Chat with Pintharu Homes" image={Img2}/>
                         </div>
                         <div>
@@ -182,6 +192,37 @@ function UserProfile(props) {
                             </Modal.Body>
                             <Modal.Footer className="justify-center">
                                 <Button color="gray" onClick={() => setOpenModal(false)}>
+                                    Back
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+
+
+
+                        <Modal show={openModal2} onClose={() => setOpenModal2(false)}>
+                            <Modal.Header className="justify-center text-center font-light"> Connect with Pintharu Chatz
+                                and ask & know anything from our experts</Modal.Header>
+                            <Modal.Body>
+                                <div className="justify-center text-center">
+                                    <input
+                                        type="text"
+                                        name=""
+                                        id=""
+                                        className="rounded-full form-control border-orange-400 text-center"
+                                        placeholder="Enter your name"
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        onKeyUp={(e) => {
+                                            // console.log(e.key);
+                                            if (e.key == "Enter" || e.key == 13) handleLogin();
+                                        }}
+                                    />
+                                    <button type="button" value={"Connect"} onClick={handleLogin} className="ml-5 h-10 rounded-full animatedbtn3">
+                                        <span>Connect >>></span>
+                                    </button>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer className="justify-center">
+                                <Button color="gray" onClick={() => setOpenModal2(false)}>
                                     Back
                                 </Button>
                             </Modal.Footer>

@@ -20,7 +20,7 @@ export default function ProjectDetailsCard(props) {
             <p className="font-normal text-gray-700 dark:text-gray-400">
                 {subDescription}...
             </p>
-            <Button gradientDuoTone="purpleToBlue" className="w-44" onClick={() => setOpenModal(true)}>See more...</Button>
+            <Button gradientDuoTone="pinkToOrange" className="w-44" onClick={() => setOpenModal(true)}>See more...</Button>
             <Modal show={openModal} onClose={() => setOpenModal(false)}>
                 <Modal.Header >
                     <div className="w-full flex justify-center items-center text-center font-bold">
@@ -45,7 +45,7 @@ export default function ProjectDetailsCard(props) {
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="justify-center">
-                    <Button gradientDuoTone="purpleToBlue" className="w-44" onClick={() => setOpenModal(false)}>
+                    <Button gradientDuoTone="pinkToOrange" className="w-44" onClick={() => setOpenModal(false)}>
                         Back
                     </Button>
                 </Modal.Footer>

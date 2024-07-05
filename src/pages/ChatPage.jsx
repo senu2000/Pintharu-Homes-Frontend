@@ -1,35 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {Button, Modal} from "flowbite-react";
 import SockJS from 'sockjs-client/dist/sockjs';
 import {FaPaperclip} from "react-icons/fa";
 import {over} from "stompjs";
+import MyFooter from "../components/Footer.jsx";
 
 var stompClient = null;
 
 // Polyfill global for browser environment
 // window.global = window;
 
-function SideNavbarChatContent(props) {
-
+function ChatPage(props) {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('ADMIN');
-    const [openModal2, setOpenModal2] = useState(true);
-
-    const handleLogin = () => {
-        localStorage.setItem("chat-username", username);
-        navigate("/admin-chat");
-        setOpenModal2(false);
+    if (localStorage.getItem("chat-username").trim().length === 0) {
+        navigate("/userProfile");
     }
 
-
+    const [username] = useState(localStorage.getItem("chat-username"));
     const [receiver, setReceiver] = useState("");
     const [message, setMessage] = useState("");
     const [media, setMedia] = useState("");
     const [tab, setTab] = useState("CHATROOM");
     const [publicChats, setPublicChats] = useState([]);
     const [privateChats, setPrivateChats] = useState(new Map());
-
 
     const onMessageReceived = (payload) => {
         const payloadData = JSON.parse(payload.body);
@@ -85,7 +78,7 @@ function SideNavbarChatContent(props) {
     const handleLogout = () => {
         userLeft();
         localStorage.removeItem("chat-username");
-        setOpenModal2(true);
+        navigate("/userProfile");
     };
     //userJoin
     const userJoin = () => {
@@ -187,43 +180,18 @@ function SideNavbarChatContent(props) {
     };
 
 
-    return (
-        <div className='bg-gray-400 h-full rounded-l-[150px] '>
-            <div className=''>
-                <Modal show={openModal2} onClose={() => setOpenModal2(false)}>
-                    <Modal.Header className="justify-center text-center font-light"> Connect with Pintharu Chatz
-                        as an ADMIN</Modal.Header>
-                    <Modal.Body>
-                        <div className="justify-center text-center">
-                            <input
-                                type="text"
-                                name=""
-                                id=""
-                                className="rounded-full form-control border-orange-400 text-center"
-                                value="ADMIN"
-                                // onChange={(e) => setUsername(e.target.value)}
-                                onKeyUp={(e) => {
-                                    // console.log(e.key);
-                                    if (e.key == "Enter" || e.key == 13) handleLogin();
-                                }}
-                            />
-                            <button type="button" value={"Connect"} onClick={handleLogin}
-                                    className="ml-5 h-10 rounded-full animatedbtn3">
-                                <span>Connect >>></span>
-                            </button>
-                        </div>
-                    </Modal.Body>
-                    <Modal.Footer className="justify-center">
-                        <Button color="gray" onClick={() => setOpenModal2(false)}>
-                            Back
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
 
+
+    return (
+        <div style={{
+            minheight: "100vh",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../public/Images/chat-bg3.jpg")`,
+            backgroundRepeat: "none",
+            backgroundSize: "cover",
+        }}>
             <div className="text-gray-300 flex justify-center text-center items-center pt-8">
                 <div className="inline-flex items-baseline font-light"
-                >
+                     >
                     <span className="self-center">Welcome to &nbsp;&nbsp;</span>
                     <span className="text-6xl font-medium" style={{
                         backgroundImage: `url("https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif")`,
@@ -238,7 +206,7 @@ function SideNavbarChatContent(props) {
             <div
                 className="flex justify-center items-center"
             >
-                <div className="container flex p-8 justify-center items-center text-center">
+                <div className="container flex p-16 justify-center items-center text-center">
                     {/*Member List */}
                     <div
                         className="chat-tab p-3 mr-3"
@@ -303,7 +271,7 @@ function SideNavbarChatContent(props) {
                                         return (
                                             <div className="flex justify-start" key={index}>
                                                 <div
-                                                    className="flex p-2 "
+                                                    className="flex p-2"
                                                     style={{
                                                         borderTopRightRadius: "5px",
                                                         borderBottomRightRadius: "5px",
@@ -387,7 +355,7 @@ function SideNavbarChatContent(props) {
                                             >
                                                 <div
                                                     className="rounded-3 p-1 pl-3 pr-3 rounded-tr-2xl rounded-tl-2xl rounded-br-2xl  bg-gray-300 me-2 self-start justify-start w-auto">
-                                                    <div className="text-xs flex justify-start bg-warning">
+                                                    <div className="text-[10px] flex justify-start bg-warning">
                                                         {message.senderName}
                                                     </div>
                                                     <div>
@@ -503,8 +471,16 @@ function SideNavbarChatContent(props) {
                     </div>
                 </div>
             </div>
+            <div className="mt-9">
+                <MyFooter/>
+            </div>
         </div>
     );
 }
 
-export default SideNavbarChatContent;
+export default ChatPage;
+
+
+
+
+
