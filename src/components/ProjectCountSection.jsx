@@ -4,13 +4,15 @@ import Icon1 from "../../public/Images/Icons/projects.png";
 import Icon2 from "../../public/Images/Icons/painters.png";
 import Icon3 from "../../public/Images/Icons/brands.png";
 import Icon4 from "../../public/Images/Icons/user.png";
+import axios from "axios";
 
 
-const ProjectSection = ({imageUrl, title, description}) => {
+const ProjectSection = ({imageUrl, title, description, actCount}) => {
     const [count, setCount] = useState(0);
+    const [paintCount, setPaintCount] = useState(0);
 
     useEffect(() => {
-        const targetCount = 25;
+        const targetCount = actCount;
         let currentCount = 0;
 
         const interval = setInterval(() => {
@@ -46,6 +48,28 @@ const ProjectSection = ({imageUrl, title, description}) => {
 };
 
 const ProjectCountSection = () => {
+    const [paintCount, setPaintCount] = useState(0);
+    const [userCount, setUserCount] = useState(0);
+    const [projectCount, setProjectCount] = useState(0);
+
+    useEffect(()=>{
+        const fetchCounts = async () => {
+            const response1 = await axios.get("http://localhost:8080/api/paint/count");
+            setPaintCount(response1.data);
+
+            const response2 = await axios.get("http://localhost:8080/api/user/count/USER");
+            setUserCount(response2.data);
+
+            const response3 = await axios.get("http://localhost:8080/api/project/count");
+            setProjectCount(response3.data);
+        }
+
+
+        fetchCounts();
+        const intervalId = setInterval(fetchCounts, 1000);
+        return () => clearInterval(intervalId);
+    }, [])
+
     return (
         <div className=" projectcountedit">
             {/*<div aria-hidden="true"*/}
@@ -60,21 +84,25 @@ const ProjectCountSection = () => {
                         imageUrl={Icon1}
                         title="Projects"
                         description="Platform to convert Domains into Content websites."
+                        actCount = {projectCount}
                     />
                     <ProjectSection
                         imageUrl={Icon2}
                         title="Painters"
                         description="Platform to create dynamic widgets for websites."
+                        actCount = "40"
                     />
                     <ProjectSection
                         imageUrl={Icon3}
-                        title="Brands"
+                        title="Paints"
                         description="API SaaS Platform that provides API Suit to help you ship fast."
+                        actCount = {paintCount}
                     />
                     <ProjectSection
                         imageUrl={Icon4}
                         title="Users"
                         description="Chrome Extension that lets you add ChatGPT on any website"
+                        actCount = {userCount}
                     />
                 </div>
             </div>
