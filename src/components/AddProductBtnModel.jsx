@@ -13,6 +13,7 @@ function AddProductBtnModel(props) {
     const [brand, setBrand] = useState('');
     const [quantity, setQuantity] = useState('');
     const [category, setCategory] = useState('');
+    const [noDisPrice, setNoDisPrice] = useState('');  //new
     const [price, setPrice] = useState('');
     const [volume, setVolume] = useState('');
 
@@ -22,6 +23,7 @@ function AddProductBtnModel(props) {
         setBrand('');
         setQuantity('');
         setCategory('');
+        setNoDisPrice('');
         setPrice('');
         setVolume('');
     }
@@ -35,6 +37,7 @@ function AddProductBtnModel(props) {
         formData.append('brand', brand);
         formData.append('quantity', quantity);
         formData.append('category', category);
+        formData.append('noDisPrice', noDisPrice);
         formData.append('price', price);
         formData.append('volume', volume);
 
@@ -68,7 +71,7 @@ function AddProductBtnModel(props) {
                                 Add New Paint Item</h3>
                             <div>
                                 <div className="mb-2 block">
-                                    <Label htmlFor="name" value="Paint name"/>
+                                    <Label htmlFor="name" value="Paint / Accessory name"/>
                                 </div>
                                 <TextInput
                                     id="name"
@@ -94,6 +97,7 @@ function AddProductBtnModel(props) {
                                     <option value="Multilac">Multilac</option>
                                     <option value="Jat">Jat</option>
                                     <option value="Robbialac">Robbialac</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div>
@@ -122,7 +126,21 @@ function AddProductBtnModel(props) {
                                     <option value="Wall Paints">Wall Paints</option>
                                     <option value="Floor Paints">Floor Paints</option>
                                     <option value="Wood and Furniture">Wood and Furniture</option>
+                                    <option value="Accessories">Accessories</option>
+                                    <option value="Other">Other</option>
                                 </select>
+                            </div>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="noDisPrice" value="Unit price without discount (Rs.) (optional) "/>
+                                </div>
+                                <TextInput id="noDisPrice"
+                                           type="number"
+                                           name="noDisPrice"
+                                           placeholder="1000"
+                                           value={noDisPrice}
+                                           onChange={(e) => setNoDisPrice(e.target.value)}
+                                           />
                             </div>
                             <div>
                                 <div className="mb-2 block">
@@ -131,7 +149,7 @@ function AddProductBtnModel(props) {
                                 <TextInput id="price"
                                            type="number"
                                            name="price"
-                                           placeholder="1000"
+                                           placeholder="990"
                                            value={price}
                                            onChange={(e) => setPrice(e.target.value)}
                                            required/>
@@ -146,7 +164,7 @@ function AddProductBtnModel(props) {
                                            placeholder="5"
                                            value={volume}
                                            onChange={(e) => setVolume(e.target.value)}
-                                           />
+                                />
                             </div>
                             <div>
                                 <div className="mb-2 block">

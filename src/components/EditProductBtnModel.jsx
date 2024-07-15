@@ -14,6 +14,7 @@ function EditProductBtnModel(props) {
     const [brand, setBrand] = useState('');
     const [quantity, setQuantity] = useState('');
     const [category, setCategory] = useState('');
+    const [noDisPrice, setNoDisPrice] = useState('');  //new
     const [price, setPrice] = useState('');
     const [volume, setVolume] = useState('');
 
@@ -23,6 +24,7 @@ function EditProductBtnModel(props) {
         setBrand('');
         setQuantity('');
         setCategory('');
+        setNoDisPrice('');
         setPrice('');
         setVolume('');
     }
@@ -31,12 +33,14 @@ function EditProductBtnModel(props) {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:8080/api/paint/${props.item.id}`);
+                // console.log(response.data);
                 const paintDetails = response.data;
                 setName(paintDetails.name || '');
                 setImage(paintDetails.image || '');
                 setBrand(paintDetails.brand || '');
                 setQuantity(paintDetails.quantity || '');
                 setCategory(paintDetails.category || '');
+                setNoDisPrice(paintDetails.noDisPrice || '');
                 setPrice(paintDetails.price || '');
                 setVolume(paintDetails.volume || '');
             } catch (error) {
@@ -57,6 +61,7 @@ function EditProductBtnModel(props) {
         formData.append('brand', brand);
         formData.append('quantity', quantity);
         formData.append('category', category);
+        formData.append('noDisPrice', noDisPrice);
         formData.append('price', price);
         formData.append('volume', volume);
 
@@ -158,6 +163,18 @@ function EditProductBtnModel(props) {
                                     <option value="Floor Paints">Floor Paints</option>
                                     <option value="Wood and Furniture">Wood and Furniture</option>
                                 </select>
+                            </div>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="noDisPrice" value="Unit price without discount (Rs.) (optional) "/>
+                                </div>
+                                <TextInput id="noDisPrice"
+                                           type="number"
+                                           name="noDisPrice"
+                                           placeholder="1000"
+                                           value={noDisPrice}
+                                           onChange={(e) => setNoDisPrice(e.target.value)}
+                                />
                             </div>
                             <div>
                                 <div className="mb-2 block">

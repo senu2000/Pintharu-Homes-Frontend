@@ -1,8 +1,8 @@
 import {Button, Card, Carousel, Modal} from "flowbite-react";
 import '../css/PaintProdcutCard.css';
 import React, {useState} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEye, faCartPlus} from '@fortawesome/free-solid-svg-icons'
 import {displayErrorToast, displaySuccessToast, displayWarningToast} from "./ToastProvider.jsx";
 import axios from "axios";
 
@@ -35,7 +35,7 @@ export default function PaintProdcutCard(props) {
 
             if (response.data === null) {
                 displaySuccessToast("Paint item already added to cart");
-            }else if (response.data) {
+            } else if (response.data) {
                 displaySuccessToast("Paint item added to cart successfully");
             } else {
                 displayWarningToast("Paint item already added to cart");
@@ -74,7 +74,7 @@ export default function PaintProdcutCard(props) {
     const showAddtoCart = () => {
         if (quantity === 0) {
             return (
-                <button className="w-44 productcard-button p-2 rounded-[10px]" disabled={true}>
+                <button className="w-44 productcard-button p-2 rounded-[10px]" onClick={displayOutOfStock}>
                     Add To Cart &nbsp; <FontAwesomeIcon icon={faCartPlus}/>
                 </button>
             );
@@ -87,6 +87,10 @@ export default function PaintProdcutCard(props) {
         }
     }
 
+    const displayOutOfStock = () => {
+        displayWarningToast("Paint item is out of stock");
+    }
+
     return (
         <Card
             className="paintcardimg productcard"
@@ -97,9 +101,21 @@ export default function PaintProdcutCard(props) {
             </h5>
             {stockStatus()}
             <div className="flex items-center justify-between productcardtext">
-                <span className="text-sm font-bold text-gray-900 dark:text-white">
-                    Rs. {props.item.price}.00
-                </span>
+                {props.item.noDisPrice ? (
+                    <div className="grid grid-rows-2 grid-flow-col">
+                        <span className="text-[10px] line-through font-bold text-gray-900 dark:text-white">
+                          Rs. {props.item.noDisPrice}.00
+                        </span>
+                        <span className="text-sm font-bold text-gray-900 dark:text-white">
+                          Rs. {props.item.price}.00
+                        </span>
+                    </div>
+                ) : (
+                    <span className="text-sm font-bold text-gray-900 dark:text-white">
+                      Rs. {props.item.price}.00
+                    </span>
+                )}
+
                 <button
                     onClick={() => setOpenModal(true)}
                     className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white
@@ -120,7 +136,8 @@ export default function PaintProdcutCard(props) {
                                 <div className="">
                                     <div className="">
                                         {/*h-56 sm:h-64 xl:h-80 2xl:h-96*/}
-                                        <img src={img} alt="" className="rounded-[20px]  h-52 lg:h-44 sm:mt-12 lg:mt-0 shadow-md"/>
+                                        <img src={img} alt=""
+                                             className="rounded-[20px]  h-52 lg:h-44 sm:mt-12 lg:mt-0 shadow-md"/>
                                     </div>
                                 </div>
                             </div>
@@ -129,24 +146,27 @@ export default function PaintProdcutCard(props) {
                                     <table className="table-auto">
                                         <tbody>
                                         <tr className="m-12">
-                                            <td>Brand </td>
+                                            <td>Brand</td>
                                             <td>: <span className="font-bold">{props.item.brand}</span></td>
                                         </tr>
                                         <tr>
-                                            <td>Available in stoke </td>
+                                            <td>Available in stoke</td>
                                             <td>: <span className="font-bold">{props.item.quantity}</span></td>
                                         </tr>
                                         <tr className="">
-                                            <td className="self-center">Category </td>
-                                            <td className="inline-flex items-baseline"><span className="self-center">:</span>
+                                            <td className="self-center">Category</td>
+                                            <td className="inline-flex items-baseline"><span
+                                                className="self-center">:</span>
                                                 <span className="font-bold ml-1.5">{props.item.category}</span></td>
                                         </tr>
                                         <tr>
-                                            <td>Volume </td>
-                                            <td>: <span className="font-bold">{props.item.volume ? `${props.item.volume} L` : '-'}</span></td>
+                                            <td>Volume</td>
+                                            <td>: <span
+                                                className="font-bold">{props.item.volume ? `${props.item.volume} L` : '-'}</span>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Price </td>
+                                            <td>Price</td>
                                             <td>: Rs. <span className="font-bold">{props.item.price}.00</span></td>
                                         </tr>
                                         </tbody>

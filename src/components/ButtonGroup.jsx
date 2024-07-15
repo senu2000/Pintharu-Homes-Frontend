@@ -54,6 +54,8 @@ export default function Buttongroup() {
                                         color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsJat')}`}>Jat</Button></Link>
                                     <Link to="/allPaintItemsRobbialac"><Button
                                         color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsRobbialac')}`}>Robbialac</Button></Link>
+                                    <Link to="/allPaintItemsOtherBrands"><Button
+                                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsOtherBrands')}`}>Other Brands</Button></Link>
                                 </div>
                             </Modal.Body>
                         </Modal>
@@ -70,6 +72,8 @@ export default function Buttongroup() {
                         color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsJat')}`}>Jat</Button></Link>
                     <Link to="/allPaintItemsRobbialac"><Button
                         color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsRobbialac')}`}>Robbialac</Button></Link>
+                    <Link to="/allPaintItemsOtherBrands"><Button
+                        color="none" className={`editbtnitem ${isLinkActive('/allPaintItemsOtherBrands')}`}>Other Brands</Button></Link>
                 </Button.Group>
             )}
         </div>

@@ -44,6 +44,12 @@ export default function Categorysidebar() {
                         <Link to="/allPaintItemsWood"><Sidebar.Item className={`sidebaritemsEdit ${isLinkActive('/allPaintItemsWood')}`}>
                             Wood and Furniture
                         </Sidebar.Item></Link>
+                        <Link to="/allPaintAccessories"><Sidebar.Item className={`sidebaritemsEdit ${isLinkActive('/allPaintAccessories')}`}>
+                            Accessories
+                        </Sidebar.Item></Link>
+                        <Link to="/allPaintItemsOtherCategory"><Sidebar.Item className={`sidebaritemsEdit ${isLinkActive('/allPaintItemsOtherCategory')}`}>
+                            Other
+                        </Sidebar.Item></Link>
                     </Sidebar.ItemGroup>
                 </Sidebar.Items>
             </Sidebar>

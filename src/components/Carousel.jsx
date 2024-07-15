@@ -83,21 +83,36 @@ export default function AdsSection() {
                 <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
                     <Carousel>
                         <div
-                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-                            {/*Slide 1*/}
-                            <img src={crsl1} alt=""/>
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white"
+                            style={{
+                                backgroundImage:`url('../public/Images/Frame 87.png')`,
+                                backgroundSize:"cover",
+                                backgroundRepeat:"no-repeat"
+                            }}>
                         </div>
                         <div
-                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-                            Slide 2
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white"
+                            style={{
+                                    backgroundImage:`url('../public/Images/Frame 88.png')`,
+                                    backgroundSize:"cover",
+                                    backgroundRepeat:"no-repeat"
+                                }}>
                         </div>
                         <div
-                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-                            Slide 3
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white"
+                            style={{
+                                    backgroundImage:`url('../public/Images/Frame 89.png')`,
+                                    backgroundSize:"cover",
+                                    backgroundRepeat:"no-repeat"
+                                }}>
                         </div>
                         <div
-                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-                            Slide 4
+                            className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white"
+                            style={{
+                                    backgroundImage:`url('../public/Images/Frame 90.png')`,
+                                    backgroundSize:"cover",
+                                    backgroundRepeat:"no-repeat"
+                                }}>
                         </div>
                     </Carousel>
                 </div>

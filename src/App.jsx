@@ -32,6 +32,9 @@ import Checkout from "./pages/Checkout.jsx";
 import Orders from "./pages/Orders.jsx";
 import Test2 from "./components/Test2.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
+import AllPaintItemsOtherBrands from "./pages/AllPaintItemsOtherBrands.jsx";
+import AllPaintItemsAccessories from "./pages/AllPaintItemsAccessories.jsx";
+import AllPaintItemsOtherCategory from "./pages/AllPaintItemsOtherCategory.jsx";
 
 
 function App() {
@@ -58,9 +61,12 @@ function App() {
                     <Route path="/allPaintItemsJat" element={<AllPaintItemsJat />} />
                     <Route path="/allPaintItemsMultilac" element={<AllPaintItemsMultilac />} />
                     <Route path="/allPaintItemsRobbialac" element={<AllPaintItemsRobbialac />} />
+                    <Route path="/allPaintItemsOtherBrands" element={<AllPaintItemsOtherBrands />} />
                     <Route path="/allPaintItemsWall" element={<AllPaintItemsWall />} />
                     <Route path="/allPaintItemsFloor" element={<AllPaintItemsFloor />} />
                     <Route path="/allPaintItemsWood" element={<AllPaintItemsWood />} />
+                    <Route path="/allPaintAccessories" element={<AllPaintItemsAccessories />} />
+                    <Route path="/allPaintItemsOtherCategory" element={<AllPaintItemsOtherCategory />} />
                     <Route path="/searchResults" element={<SearchResults />} />
                     <Route path="/quotationGeneration" element={<Quotation />} />
                     <Route path="/contactus" element={<ContactUs />} />

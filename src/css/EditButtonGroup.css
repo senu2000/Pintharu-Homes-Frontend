@@ -71,14 +71,14 @@
     }
 
     .editbtnitem:hover {
-        border-radius: 0px !important;
+        border-radius: 10px !important;
         background-color: #333333;
         border: none !important;
         color: #ffffff;
     }
 
     .editbtnitem.active {
-        border-radius: 0px !important;
+        border-radius: 10px !important;
         background-color: #333333;
         border: none !important;
         margin-right: 8px;

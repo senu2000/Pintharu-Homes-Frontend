@@ -1,3 +1,7 @@
+.productcard{
+    transition: transform 0.3s;
+}
+
 .paintcardimg{
     padding-left: 30px;
     padding-right: 30px;

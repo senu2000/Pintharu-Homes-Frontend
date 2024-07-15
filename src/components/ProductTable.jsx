@@ -43,7 +43,8 @@ function ProductTable(props) {
                         <Table.HeadCell>Brand</Table.HeadCell>
                         <Table.HeadCell>Quantity</Table.HeadCell>
                         <Table.HeadCell>Category</Table.HeadCell>
-                        <Table.HeadCell>Price (LKR)</Table.HeadCell>
+                        <Table.HeadCell>Actual Price (LKR)</Table.HeadCell>
+                        <Table.HeadCell>Discounted Price (LKR)</Table.HeadCell>
                         <Table.HeadCell>Volume (L)</Table.HeadCell>
                         <Table.HeadCell>
                             <input
@@ -51,7 +52,7 @@ function ProductTable(props) {
                                 placeholder="Filter by name ..."
                                 value={searchTerm}
                                 onChange={handleSearch}
-                                className="rounded-full text-center pr-2 border-blue-600"
+                                className="rounded-full text-center pr-2 border-blue-600 w-[170px]"
                             />
                         </Table.HeadCell>
                     </Table.Head>
@@ -63,6 +64,7 @@ function ProductTable(props) {
                                 <Table.Cell>{item.brand}</Table.Cell>
                                 <Table.Cell>{item.quantity}</Table.Cell>
                                 <Table.Cell>{item.category}</Table.Cell>
+                                <Table.Cell>{item.noDisPrice}</Table.Cell>
                                 <Table.Cell>{item.price}</Table.Cell>
                                 <Table.Cell>{item.volume}</Table.Cell>
                                 <Table.Cell><EditProductBtnModel item={item}/></Table.Cell>

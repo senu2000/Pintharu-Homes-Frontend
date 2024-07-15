@@ -55,7 +55,7 @@ export default function Home() {
         };
 
         fetchPaints();
-        const intervalId = setInterval(fetchPaints, 6000);
+        const intervalId = setInterval(fetchPaints, 4000);
         return () => clearInterval(intervalId);
     }, []);
 
