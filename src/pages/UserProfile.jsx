@@ -15,6 +15,7 @@ import {useState} from "react"
 import CalendlyWidget from "../components/CalendlyWidget.jsx";
 import axios from "axios";
 import MyFooter from "../components/Footer.jsx";
+import {displayErrorToast} from "../components/ToastProvider.jsx";
 
 function UserProfile(props) {
 
@@ -27,9 +28,12 @@ function UserProfile(props) {
     const [username, setUsername] = useState();
 
     const handleLogin = () => {
+        if (username.trim() === '') {
+            displayErrorToast("Username is required");
+            return;
+        }
         localStorage.setItem("chat-username", username);
         navigate("/chat");
-        // history.push("/chat");
     };
 
     useEffect(() => {
@@ -63,6 +67,7 @@ function UserProfile(props) {
         // });
         localStorage.removeItem('token');
         sessionStorage.removeItem('token');
+        // sessionStorage.removeItem('role');
         localStorage.removeItem('userId');
         navigate('/login');
         window.location.reload();
@@ -215,6 +220,7 @@ function UserProfile(props) {
                                             // console.log(e.key);
                                             if (e.key == "Enter" || e.key == 13) handleLogin();
                                         }}
+                                        required
                                     />
                                     <button type="button" value={"Connect"} onClick={handleLogin} className="ml-5 h-10 rounded-full animatedbtn3">
                                         <span>Connect >>></span>

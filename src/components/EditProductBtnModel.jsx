@@ -70,6 +70,7 @@ function EditProductBtnModel(props) {
         try {
             const response = await axios.put(`http://localhost:8080/api/paint/${props.item.id}`, formData, {
                 headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data',
                 },
             });

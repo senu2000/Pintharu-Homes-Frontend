@@ -37,17 +37,127 @@ import AllPaintItemsAccessories from "./pages/AllPaintItemsAccessories.jsx";
 import AllPaintItemsOtherCategory from "./pages/AllPaintItemsOtherCategory.jsx";
 
 
+// function App() {
+//     const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
+//
+//     const updateAuthentication = () => {
+//         const token = sessionStorage.getItem('token');
+//         setIsAuthenticated(!!token);
+//     };
+//
+//     useEffect(() => {
+//         updateAuthentication();
+//     }, []);
+//
+//     return (
+//         <>
+//             <Router>
+//                 <Routes>
+//                     <Route index element={<Home />} />
+//                     <Route path="/home" element={<Home />} />
+//                     <Route path="/allProjects" element={<AllProjects />} />
+//                     <Route path="/allPaintItems" element={<AllPaintItems />} />
+//                     <Route path="/allPaintItemsDuluxe" element={<AllPaintItemsDuluxe />} />
+//                     <Route path="/allPaintItemsJat" element={<AllPaintItemsJat />} />
+//                     <Route path="/allPaintItemsMultilac" element={<AllPaintItemsMultilac />} />
+//                     <Route path="/allPaintItemsRobbialac" element={<AllPaintItemsRobbialac />} />
+//                     <Route path="/allPaintItemsOtherBrands" element={<AllPaintItemsOtherBrands />} />
+//                     <Route path="/allPaintItemsWall" element={<AllPaintItemsWall />} />
+//                     <Route path="/allPaintItemsFloor" element={<AllPaintItemsFloor />} />
+//                     <Route path="/allPaintItemsWood" element={<AllPaintItemsWood />} />
+//                     <Route path="/allPaintAccessories" element={<AllPaintItemsAccessories />} />
+//                     <Route path="/allPaintItemsOtherCategory" element={<AllPaintItemsOtherCategory />} />
+//                     <Route path="/searchResults" element={<SearchResults />} />
+//                     <Route path="/quotationGeneration" element={<Quotation />} />
+//                     <Route path="/contactus" element={<ContactUs />} />
+//                     <Route
+//                         path="/userProfile"
+//                         element={isAuthenticated ? <UserProfile /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/admin-product"
+//                         element={isAuthenticated ? <Admin /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/admin-chat"
+//                         element={isAuthenticated ? <AdminChat /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/admin-orders"
+//                         element={isAuthenticated ? <AdminOrders /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/admin-rates"
+//                         element={isAuthenticated ? <AdminRates /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/admin-users"
+//                         element={isAuthenticated ? <AdminUsers /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/admin-projects"
+//                         element={isAuthenticated ? <AdminProjects /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/cart"
+//                         element={isAuthenticated ? <Cart /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/payment"
+//                         element={isAuthenticated ? <Payment /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/homeVisualizer"
+//                         element={isAuthenticated ? <HomeVisualizer /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/checkout"
+//                         element={isAuthenticated ? <Checkout /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/myOrders"
+//                         element={isAuthenticated ? <Orders /> : <Navigate to="/login" />}
+//                     />
+//                     <Route
+//                         path="/chat"
+//                         element={isAuthenticated ? <ChatPage /> : <Navigate to="/login" />}
+//                     />
+//                     <Route path="/login" element={<Login onLoginSuccess={updateAuthentication} />} />
+//                     <Route path="/register" element={<Register />} />
+//                     <Route path="/test" element={<Test2 />} />
+//                     {/*<Route path="/homeVisualizer" element={<HomeVisualizer />} />*/}
+//                 </Routes>
+//             </Router>
+//             <Toaster richColors />
+//         </>
+//     );
+// }
+//
+// export default App;
+
+
+
+
+
+
+
+
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
+    const [userRole, setUserRole] = useState(sessionStorage.getItem('role'));
 
     const updateAuthentication = () => {
         const token = sessionStorage.getItem('token');
+        const role = sessionStorage.getItem('role');
         setIsAuthenticated(!!token);
+        setUserRole(role);
     };
 
     useEffect(() => {
         updateAuthentication();
     }, []);
+
+    const isAdmin = () => userRole === 'ADMIN';
 
     return (
         <>
@@ -76,27 +186,27 @@ function App() {
                     />
                     <Route
                         path="/admin-product"
-                        element={isAuthenticated ? <Admin /> : <Navigate to="/login" />}
+                        element={isAuthenticated && isAdmin() ? <Admin /> : <Navigate to="/login" />}
                     />
                     <Route
                         path="/admin-chat"
-                        element={isAuthenticated ? <AdminChat /> : <Navigate to="/login" />}
+                        element={isAuthenticated && isAdmin() ? <AdminChat /> : <Navigate to="/login" />}
                     />
                     <Route
                         path="/admin-orders"
-                        element={isAuthenticated ? <AdminOrders /> : <Navigate to="/login" />}
+                        element={isAuthenticated && isAdmin() ? <AdminOrders /> : <Navigate to="/login" />}
                     />
                     <Route
                         path="/admin-rates"
-                        element={isAuthenticated ? <AdminRates /> : <Navigate to="/login" />}
+                        element={isAuthenticated && isAdmin() ? <AdminRates /> : <Navigate to="/login" />}
                     />
                     <Route
                         path="/admin-users"
-                        element={isAuthenticated ? <AdminUsers /> : <Navigate to="/login" />}
+                        element={isAuthenticated && isAdmin() ? <AdminUsers /> : <Navigate to="/login" />}
                     />
                     <Route
                         path="/admin-projects"
-                        element={isAuthenticated ? <AdminProjects /> : <Navigate to="/login" />}
+                        element={isAuthenticated && isAdmin() ? <AdminProjects /> : <Navigate to="/login" />}
                     />
                     <Route
                         path="/cart"
@@ -134,7 +244,6 @@ function App() {
 }
 
 export default App;
-
 
 
 

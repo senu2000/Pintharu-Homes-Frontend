@@ -26,6 +26,55 @@ export default function Loginform(props) {
             return;
         }
 
+    //     axios.post(`http://localhost:8080/login`, userDetails)
+    //         .then((response) => {
+    //             if (response.data && response.data.token) {
+    //                 localStorage.setItem('token', response.data.token);
+    //                 sessionStorage.setItem('token', response.data.token);
+    //                 props.onLoginSuccess();
+    //
+    //                 // Check if user is an admin
+    //                 axios.get('http://localhost:8080/admin_only', {
+    //                     headers: {
+    //                         Authorization: `Bearer ${response.data.token}`
+    //                     }
+    //                 })
+    //                     .then(() => {
+    //                         // User is an ADMIN
+    //                         navigate("/admin-product");
+    //                         displaySuccessToast("Sign in successfully");
+    //                     })
+    //                     .catch(() => {
+    //                         // User is not an ADMIN, check if user is a USER
+    //                         axios.get('http://localhost:8080/user_only', {
+    //                             headers: {
+    //                                 Authorization: `Bearer ${response.data.token}`
+    //                             }
+    //                         })
+    //                             .then(() => {
+    //                                 // User is a USER
+    //                                 console.log(sessionStorage.getItem('token'));
+    //                                 navigate("/userProfile");
+    //                                 displaySuccessToast("Sign in successfully");
+    //                             })
+    //                             .catch(() => {
+    //                                 // Unable to determine user role
+    //                                 displayErrorToast("Invalid username or password");
+    //                             });
+    //                     });
+    //             } else {
+    //                 displayErrorToast("Invalid username or password");
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error checking user existence:', error);
+    //             displayErrorToast("Invalid username or password");
+    //         });
+
+
+
+
+
         axios.post(`http://localhost:8080/login`, userDetails)
             .then((response) => {
                 if (response.data && response.data.token) {
@@ -41,6 +90,8 @@ export default function Loginform(props) {
                     })
                         .then(() => {
                             // User is an ADMIN
+                            sessionStorage.setItem('role', 'ADMIN');
+                            props.onLoginSuccess();
                             navigate("/admin-product");
                             displaySuccessToast("Sign in successfully");
                         })
@@ -53,7 +104,7 @@ export default function Loginform(props) {
                             })
                                 .then(() => {
                                     // User is a USER
-                                    console.log(sessionStorage.getItem('token'));
+                                    // sessionStorage.setItem('role', 'USER');
                                     navigate("/userProfile");
                                     displaySuccessToast("Sign in successfully");
                                 })
@@ -70,6 +121,8 @@ export default function Loginform(props) {
                 console.error('Error checking user existence:', error);
                 displayErrorToast("Invalid username or password");
             });
+
+
     }
 
     return (

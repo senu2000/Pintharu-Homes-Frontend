@@ -46,6 +46,7 @@ function AddProductBtnModel(props) {
         try {
             const response = await axios.post('http://localhost:8080/api/paint/createpaint', formData, {
                 headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data',
                 },
             });

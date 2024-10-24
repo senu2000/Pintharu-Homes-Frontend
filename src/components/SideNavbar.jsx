@@ -58,6 +58,7 @@ function SideNavbar(props) {
         sessionStorage.removeItem('token');
         localStorage.removeItem('userId');
         localStorage.removeItem("chat-username");
+        sessionStorage.removeItem('role');
         navigate('/login');
         window.location.reload();
     };
